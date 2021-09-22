@@ -1,0 +1,301 @@
+/* pengaturan font */
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+body {
+    font-family: 'Nunito', sans-serif !important;
+}
+
+/* any */
+.bg-primary {
+    background-color: #630640 !important;
+}
+
+.bg-secondary {
+    background-color:#efefef !important;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+/* berita */
+
+.card {
+  border: solid 3px white;
+  transition: 1s;
+}
+
+div.card:hover {
+  border: solid 3px #630460;
+}
+
+/* Preloader */
+.preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999999999;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  overflow: hidden;
+}
+
+.preloader-inner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.preloader-icon {
+  width: 100px;
+  height: 100px;
+  display: inline-block;
+  padding: 0px;
+}
+
+.preloader-icon span {
+  position: absolute;
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  border-radius: 100%;
+  background: #630460;
+  -webkit-animation: preloader-fx 1.6s linear infinite;
+  animation: preloader-fx 1.6s linear infinite;
+}
+
+.preloader-icon span:last-child {
+  animation-delay: -0.8s;
+  -webkit-animation-delay: -0.8s;
+}
+
+@keyframes preloader-fx {
+  0% {
+    transform: scale(0, 0);
+    opacity: 0.5;
+  }
+
+  100% {
+    transform: scale(1, 1);
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes preloader-fx {
+  0% {
+    -webkit-transform: scale(0, 0);
+    opacity: 0.5;
+  }
+
+  100% {
+    -webkit-transform: scale(1, 1);
+    opacity: 0;
+  }
+}
+
+/* scroll top */
+.scroll-top {
+  width: 45px;
+  height: 45px;
+  background: #630460;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  border-radius: 0;
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  cursor: pointer;
+  transition: all 0.9s ease-out 0s;
+}
+
+a.scroll-top:hover {
+  color: #630640;
+}
+
+
+/* toolbar */
+
+span.bar {
+    font-size: 4vh;
+    padding-left: 0.5vh;
+    color: #630460;
+}
+
+/* margin tambahan fixed top */
+.sectionrespon {
+  margin-top: 12.5vh;
+}
+
+
+/* fitur */
+.fitur {
+    display: inline;
+    color: black;
+    border-left: solid 1vh #630640;
+    border-right: solid 1vh #630640;
+    transition: 1s;
+}
+
+h1.fitur:hover {
+    border-left: solid 2vh #630640;
+    color: #630640;
+}
+
+span.size {
+    color: #630640;
+    font-size: 3vh;
+}
+
+/* navbar dropdown hover*/
+  .navbar .nav-item:not(:last-child) {
+  margin-right: 35px;
+  }
+  
+  .dropdown-toggle::after {
+  transition: transform 1s linear; 
+  }
+  
+  .show.dropdown .dropdown-toggle::after {
+  transform: translateY(3px);
+  }
+
+  .dropdown-menu {
+  margin-top: 0;
+  }
+
+/* navbar padding */
+  li.nav-item,a.nav-link {
+    margin: 0 !important; 
+    padding: 0 0,3em !important;
+    color: black !important;
+    border: solid 0px #f8f8f8;
+    transition: 0.5s;
+  }
+
+  li.nav-item:hover {
+    border-left: solid 10px #630640;
+  }
+
+/* navbar sticky top */
+.navbar-area {
+  width: 100%;
+  z-index: 99;
+  transition: all 0.9s ease-out 0s;
+  background: #fff;
+}
+
+.sticky {
+  position: fixed;
+  z-index: 99;
+  background-color: #fff;
+  box-shadow: 0px 20px 50px 0px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease-out 0s;
+  top: 0;
+}
+
+/* layanan */
+span.layanan {
+  font-size: 10vh;
+  color: #630460;
+}
+
+.servis {
+  border: solid 0vh white;
+  transition: 500ms;
+}
+
+.servis:hover {
+  border: solid 1vh #630460;
+}
+
+/* share section */
+span.bagi {
+  font-size: 4vh;
+}
+
+/* footer */
+span.footer {
+  color: #630460;
+  font-size: 5vh;
+  border-bottom: solid 0.2vh #630640;
+  transition: 1s;
+}
+
+span.footer:hover {
+  border-bottom: solid 1vh #630460;
+}
+
+li.footer {
+  display: inline;
+}
+
+a.btn-primary {
+  transition: 0.25s;
+}
+
+a.btn-primary:hover {
+  background-color: white;
+  color: #630460;
+}
+
+/* login */
+
+button.btn.login {
+  transition: 0.7s;
+}
+
+button.login:hover {
+  background-color: white;
+  color: #630460;
+}
+
+/* css baru tambahan */
+
+.dayak-bg {
+  background-image: url("/asset/img/background/berita_motif.png");
+}
+
+.angka-bg {
+  background-image: url("/asset/img/background/angka_bg.png");
+  background-size: cover;
+  background-position:left bottom;
+}
+
+.shadow {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.kerjasama {
+  width: 15vh;
+}
+
+@media screen and (max-width: 700px) {
+p.foot {
+  font-size: 10px !important;
+}
+
+h3.angka-font {
+  font-size: 1.8vh !important;
+  font-weight: bold;
+}
+
+span.btn-print {
+  display: none !important;
+}
+}
+
+.angka {
+  border: 0px solid rgba(0, 0, 0, 0.0);
+  transition: 500ms;
+  padding: 17px 0;
+}
+
+.angka:hover {
+  border: 3px solid white;
+}
