@@ -24,7 +24,8 @@ class Navbar extends Component
      */
     public function render()
     {
-        $menu = Menu::all();
+        $menu = Menu::where('judul','!=','hidden')->
+                where('judul','!=','draft')->get();
         return view('components.navbar', compact('menu'));
     }
 }
