@@ -45,6 +45,11 @@ return [
             'root'   => public_path('asset/img/berita'),
         ],
 
+        'public_artikel_thumbnail' => [
+            'driver' => 'local',
+            'root'   => public_path('asset/img/berita/thumbnails'),
+        ],
+
         'public' => [
             'driver' => 'local',
             'root' => storage_path('app/public'),

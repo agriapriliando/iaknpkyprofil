@@ -12,15 +12,15 @@
     {{-- berita beranda --}}
     <div class="row justify-content-center">
         @foreach ($artikel as $ar)
-        <div class="col-lg-4 col-md-4 col-10 mb-2">
+        <div class="col-lg-3 col-md-3 col-10 mb-2">
             <a href="{{$ar->slug}}">
             <div class="card">
-                <img class="card-img-top" src="asset/img/berita/{{$ar->img}}" alt="...">
+                <img class="card-img-top" src="asset/img/berita/thumbnails/{{$ar->img}}" alt="...">
                 <div class="card-body">
                     <p class="card-text fw-bold">{{$ar->judul}}</p>
-                    <p class="card-text fst-italic">
-                        <span><i class="fas fa-user-tie"></i> By {{$ar->user->name}} | </span>
-                        <span><i class="fas fa-layer-group"></i> {{$ar->kategori->judul}} | </span><br>
+                    <p class="card-text fst-italic fs-6">
+                        {{-- <span><i class="fas fa-user-tie"></i> By {{$ar->user->name}} | </span>
+                        <span><i class="fas fa-layer-group"></i> {{$ar->kategori->judul}} | </span><br> --}}
                         <span><i class="far fa-calendar-alt"></i>  {{date('d F, Y', strtotime($ar->created_at))}} | </span>
                         <span><i class="far fa-clock"></i> {{date('H.i.s', strtotime($ar->created_at))}} Wib</span></p>
                     <p class="card-text">{!!Str::words($ar->isi, 15)!!}</p>

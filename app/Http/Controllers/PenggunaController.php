@@ -14,6 +14,7 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Hash;
+use Intervention\Image\Facades\Image;
 
 class PenggunaController extends Controller
 {
@@ -246,21 +247,33 @@ class PenggunaController extends Controller
         ]);
 
         $id_ses = session()->get('id');
-
+        
         $artikel = Artikel::find($id);
 
+        // jika ada request img
         if ($request->hasFile('img')) {
-            // jika ada request img
-            $imageName = Carbon::now()->format('mYdHi').'.'.$request->file('img')->extension();
             // nama file img baru, tambahan datetime format bulan tahun tanggal waktu
-            $request->file('img')->storeAs('asset/img/berita', $imageName, 'local');
+            $imageName = Carbon::now()->format('mYdHi').'.'.$request->file('img')->extension();
+            
+            // set path thumbnails
+            $destinationPath = public_path('asset/img/berita/thumbnails');
+            // kode img intervention hingga save file
+            $imgFile = Image::make($request->file('img'));
+            $imgFile->resize(160, 120, function ($constraint) {
+                $constraint->aspectRatio();
+            })->save($destinationPath.'/'.$imageName);
+            
             // file request disimpan
+            $request->file('img')->storeAs('asset/img/berita', $imageName, 'local');
 
             // dapatkan nama foto lama
             $filename  = $artikel->img;
             // tentukan foto lama utk dihapus
             if(Storage::disk('public_artikel')->exists($filename)) {
                 Storage::disk('public_artikel')->delete($filename);
+            }
+            if(Storage::disk('public_artikel_thumbnail')->exists($filename)) {
+                Storage::disk('public_artikel_thumbnail')->delete($filename);
             }
 
             }else if($request->missing('img')) { //jika request file img tidak ada
@@ -310,10 +323,19 @@ class PenggunaController extends Controller
         $id_ses = session()->get('id');
 
         $artikel = New Artikel;
-        $imageName = Carbon::now()->format('mYdHi').'.'.$request->file('img')->extension();
         // nama file img baru, tambahan datetime format bulan tahun tanggal waktu
-        $request->file('img')->storeAs('asset/img/berita', $imageName, 'local');
+        $imageName = Carbon::now()->format('mYdHi').'.'.$request->file('img')->extension();
+
+        // set path thumbnails
+        $destinationPath = public_path('asset/img/berita/thumbnails');
+        // kode img intervention hingga save file
+        $imgFile = Image::make($request->file('img'));
+        $imgFile->resize(160, 120, function ($constraint) {
+            $constraint->aspectRatio();
+        })->save($destinationPath.'/'.$imageName);
+
         // file request disimpan
+        $request->file('img')->storeAs('asset/img/berita', $imageName, 'local');
         
         $artikel->judul = $request->judul;
         $artikel->isi = $request->isi;
@@ -338,6 +360,10 @@ class PenggunaController extends Controller
         // tentukan foto utk dihapus
         if(Storage::disk('public_artikel')->exists($filename)) {
             Storage::disk('public_artikel')->delete($filename);
+        }
+
+        if(Storage::disk('public_artikel_thumbnail')->exists($filename)) {
+            Storage::disk('public_artikel_thumbnail')->delete($filename);
         }
 
         $artikel->delete();
