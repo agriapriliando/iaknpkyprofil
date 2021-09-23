@@ -23,7 +23,6 @@ class ArtikelController extends Controller
             $pageview = new Pageview;
             $pageview->page = "Artikel";
             $pageview->ip_add = $ip;
-            $pageview->tgl = Carbon::today();
             $pageview->save();
         }
         Cookie::queue('artikel', $ip , $minutes); //set cookie
