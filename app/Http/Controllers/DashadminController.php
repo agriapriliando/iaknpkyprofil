@@ -33,22 +33,14 @@ class DashadminController extends Controller
 
         // jumlah viewer
         // total viewer bulan ini
-        $viewer_pageview = Pageview::whereMonth('created_at',$bulan)->select('ip_add')->distinct()->get()->count();
-        $viewer_viewer = DB::table('views')->whereMonth('viewed_at',$bulan)->select('visitor')->distinct()->get()->count();
-        $viewer_blnini = $viewer_pageview + $viewer_viewer;
+        $viewer_blnini = Pageview::whereMonth('created_at',$bulan)->select('ip_add')->distinct()->get()->count();
 
         // total viewer bulan lalu
-        $viewer_pageviewlalu = Pageview::whereMonth('created_at',$bulanlalu)->select('ip_add')->distinct()->get()->count();
-        $viewer_viewerlalu = DB::table('views')->whereMonth('viewed_at',$bulanlalu)->select('visitor')->distinct()->get()->count();
-        $viewer_blnlalu = $viewer_pageviewlalu + $viewer_viewerlalu;
-        
+        $viewer_blnlalu = Pageview::whereMonth('created_at',$bulanlalu)->select('ip_add')->distinct()->get()->count();
         $viewer_slsih = $viewer_blnini - $viewer_blnlalu;
 
         // total all viewer
-        $viewer_all_pageview = Pageview::select('ip_add')->distinct()->get()->count();
-        $viewer_all_viewer = DB::table('views')->select('visitor')->distinct()->get()->count();
-        $viewer_tot = $viewer_all_pageview + $viewer_all_viewer;
-
+        $viewer_tot = Pageview::select('ip_add')->distinct()->get()->count();
 
         //jumlah konten
         $konten_tot = Konten::count();

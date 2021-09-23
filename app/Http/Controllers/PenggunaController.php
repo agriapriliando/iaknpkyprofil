@@ -245,6 +245,9 @@ class PenggunaController extends Controller
             'img.dimensions' => 'Rasio Foto harus 4:3 landscape, contoh P 400 X L 300',
         ]);
 
+        // $image = $request->img->getRealPath();
+        // return $image;
+
         $id_ses = session()->get('id');
 
         $artikel = Artikel::find($id);
