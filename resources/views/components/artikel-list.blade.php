@@ -10,9 +10,9 @@
         <div class="col-lg-7 col-md-7 col-11">
             <!-- daftar berita -->
             @foreach ($artikel as $ar)
-            <div class="row p-3">
+            <div class="row m-3">
                 <div class="col-lg-4 col-md-4 col-12 mb-xs-3">
-                    <a href="{{$ar->slug}}"><img class="card-img-top" src="{{ url('asset/img/berita/'.$ar->img)}}" alt="..."></a>
+                    <a href="{{$ar->slug}}"><img class="card-img-top" src="{{ url('asset/img/berita/thumbnails/'.$ar->img)}}" alt="..."></a>
                 </div>
                 <div class="col-lg-8 col-md-8 col-12">
                     <a href="{{$ar->slug}}">
@@ -25,7 +25,7 @@
                         <span class="mx-1" style="font-size: 1.5vh"><i class="far fa-clock me-1"></i>{{date('H:i:s', strtotime($ar->created_at))}} WIB</span>
                         <span class="mx-1" style="font-size: 1.5vh"><i class="fas fa-layer-group me-1"></i>{{$ar->kategori->judul}}</span>
                     </p>
-                    <p class="card-text" style="text-align: justify;">{!!Str::words($ar->isi, 25)!!}<span style="color:purple;"> Selengkapnya</span></p>
+                    <p class="card-text" style="text-align: justify;">{!!Str::words($ar->isi, 20)!!}<span style="color:purple;"> Selengkapnya</span></p>
                     </a>
                 </div>
             </div>
@@ -58,7 +58,7 @@
                 @foreach ($terbaru as $ter)
                 <div class="row border border-1 py-2">
                     <div class="col-lg-4 col-md-4 col-3">
-                        <img class="card-img-top" src="{{ url('asset/img/berita/'.$ter->img)}}" alt="...">
+                        <img class="card-img-top" src="{{ url('asset/img/berita/thumbnails/'.$ter->img)}}" alt="...">
                     </div>
                     <div class="col-lg-8 col-md-8 col-9">
                         <a class="link-dark" href="{{url(''.$ter->slug)}}">{{$ter->judul}}</a><br>

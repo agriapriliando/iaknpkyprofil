@@ -24,7 +24,7 @@ class Beritahome extends Component
      */
     public function render()
     {
-        $artikel = Artikel::with('kategori')->orderByDesc('created_at')->limit(3)->get();
+        $artikel = Artikel::with('kategori')->orderByDesc('created_at')->limit(4)->get();
         return view('components.beritahome', compact('artikel'));
     }
 }

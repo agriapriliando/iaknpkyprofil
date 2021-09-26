@@ -23,7 +23,6 @@ class ArtikelController extends Controller
             $pageview = new Pageview;
             $pageview->page = "Artikel";
             $pageview->ip_add = $ip;
-            $pageview->tgl = Carbon::today();
             $pageview->save();
         }
         Cookie::queue('artikel', $ip , $minutes); //set cookie
@@ -46,18 +45,26 @@ class ArtikelController extends Controller
         $ip = $request->ip(); //get ip
         $minutes = 10; //set menit
         $setCookieArtikel = 'id_artikel_'.$artikeldt->id;
+        // data kunjungan
+        $today = Carbon::today();
+        $viewed = Pageview::where('page',$setCookieArtikel)->whereDate('created_at',$today)->count();
+        $viewed_tot = Pageview::where('page',$setCookieArtikel)->count();
+
         if($request->cookie($setCookieArtikel) == null)
         {
             $pageview = new Pageview;
             $pageview->page = $setCookieArtikel;
             $pageview->ip_add = $ip;
+
+            // kirim jmlh viewer ke T_artikels
+            $artikeldt->dilihat = Pageview::where('page',$setCookieArtikel)->count();
+
+            DB::transaction(function () use ($pageview, $artikeldt) {
             $pageview->save();
+            $artikeldt->save();
+            });
         }
         Cookie::queue($setCookieArtikel, $ip , $minutes); //set cookie
-        // data kunjungan
-        $today = Carbon::today();
-        $viewed = Pageview::where('page',$setCookieArtikel)->whereDate('created_at',$today)->count();
-        $viewed_tot = Pageview::where('page',$setCookieArtikel)->count();
 
         return view('artikeldt', compact(
             'viewed',
