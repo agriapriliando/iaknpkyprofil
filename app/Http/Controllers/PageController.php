@@ -40,18 +40,19 @@ class PageController extends Controller
 
         $ip = $request->ip(); //get ip
         $minutes = 10; //set menit
-        if($request->cookie($slug) == null)
+        $setCookieKonten = 'id_konten_'.$konten->id;
+        if($request->cookie($setCookieKonten) == null)
         {
             $pageview = new Pageview;
-            $pageview->page = $konten->slug;
+            $pageview->page = $setCookieKonten;
             $pageview->ip_add = $ip;
             $pageview->save();
         }
         Cookie::queue($slug, $ip , $minutes); //set cookie
 
         $today = Carbon::today();
-        $viewed = Pageview::where('page',$slug)->whereDate('created_at',$today)->count();
-        $viewed_tot = Pageview::where('page',$slug)->count();
+        $viewed = Pageview::where('page',$setCookieKonten)->whereDate('created_at',$today)->count();
+        $viewed_tot = Pageview::where('page',$setCookieKonten)->count();
 
         return view('konten', compact(
             'konten',
