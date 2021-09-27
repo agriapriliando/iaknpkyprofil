@@ -23,7 +23,8 @@ class PageviewFactory extends Factory
     {
         return [
             'page' => "Beranda",
-            'ip_add' => "127.0.0.1",
+            // 'ip_add' => "127.0.0.1",
+            'ip_add' => $this->faker->ipv4(),
         ];
     }
 }
