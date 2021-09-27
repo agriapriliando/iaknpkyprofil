@@ -33,8 +33,11 @@
             <!-- end daftar berita -->
 
             <!-- pagination -->
-            <div class="row mt-2 text-center">
-                {{ $artikel->links() }}
+            <div class="row mt-2">
+                <div class="col">
+                    {{ $artikel->links() }}
+                    {{ $slot }}
+                </div>
             </div>
               <!-- end pagination -->
         </div>

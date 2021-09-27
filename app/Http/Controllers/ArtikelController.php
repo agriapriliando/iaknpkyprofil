@@ -30,10 +30,12 @@ class ArtikelController extends Controller
         $today = Carbon::today();
         $viewed = Pageview::where('page','Artikel')->whereDate('created_at',$today)->count();
         $viewed_tot = Pageview::where('page','Artikel')->count();
+        $totalArtikel = Artikel::all()->count();
 
         return view('artikel', compact(
             'viewed',
             'viewed_tot',
+            'totalArtikel',
         ));
 
     }    
@@ -50,6 +52,8 @@ class ArtikelController extends Controller
         $viewed = Pageview::where('page',$setCookieArtikel)->whereDate('created_at',$today)->count();
         $viewed_tot = Pageview::where('page',$setCookieArtikel)->count();
 
+        // return $viewed_tot;
+
         if($request->cookie($setCookieArtikel) == null)
         {
             $pageview = new Pageview;
@@ -57,7 +61,7 @@ class ArtikelController extends Controller
             $pageview->ip_add = $ip;
 
             // kirim jmlh viewer ke T_artikels
-            $artikeldt->dilihat = Pageview::where('page',$setCookieArtikel)->count();
+            $artikeldt->dilihat = Pageview::where('page',$setCookieArtikel)->count()+1;
 
             DB::transaction(function () use ($pageview, $artikeldt) {
             $pageview->save();

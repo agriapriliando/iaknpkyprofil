@@ -3,7 +3,7 @@
     <x-navbar></x-navbar>
     <!-- end navbar -->
     <x-artikel-list>
-    
+        <p class="fs-6 fst-italic">Total : {{ $totalArtikel }} Judul</p>
     </x-artikel-list>
 
     <!-- start footer -->
