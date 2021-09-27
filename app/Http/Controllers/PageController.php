@@ -13,6 +13,9 @@ class PageController extends Controller
 
     public function index(Request $request)
     {
+        $jmlhKonten = Konten::all()->count()-1;
+        return $jmlhKonten;
+
         $ip = $request->ip(); //get ip
         $minutes = 10; //set menit
         if($request->cookie('beranda') == null)
@@ -40,7 +43,7 @@ class PageController extends Controller
 
         $ip = $request->ip(); //get ip
         $minutes = 10; //set menit
-        $setCookieKonten = 'id_konten_'.$konten->id;
+        $setCookieKonten = 'id_konten_'.$konten->id; //set untuk cookie konten
         if($request->cookie($setCookieKonten) == null)
         {
             $pageview = new Pageview;
