@@ -262,7 +262,7 @@ class PenggunaController extends Controller
             $destinationPath = public_path('asset/img/berita/thumbnails');
             // kode img intervention hingga save file
             $imgFile = Image::make($request->file('img'));
-            $imgFile->resize(160, 120, function ($constraint) {
+            $imgFile->resize(320, 240, function ($constraint) {
                 $constraint->aspectRatio();
             })->save($destinationPath.'/'.$imageName);
             
@@ -333,7 +333,7 @@ class PenggunaController extends Controller
         $destinationPath = public_path('asset/img/berita/thumbnails');
         // kode img intervention hingga save file
         $imgFile = Image::make($request->file('img'));
-        $imgFile->resize(160, 120, function ($constraint) {
+        $imgFile->resize(320, 240, function ($constraint) {
             $constraint->aspectRatio();
         })->save($destinationPath.'/'.$imageName);
 
