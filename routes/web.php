@@ -6,27 +6,11 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\ArtikelController;
 use App\Http\Controllers\PenggunaController;
 use App\Http\Controllers\DashadminController;
+use App\Http\Controllers\PhotoController;
 use App\Http\Controllers\SearchController;
 use Illuminate\Support\Facades\Artisan;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-// Route::redirect('/', '/beranda');
-
-// Route::view('/', 'home');
-Route::view('/info/{slug}', 'konten');
+// Jalan kan artisan route:cache setiap menambah route
 
 Route::get('/', [PageController::class, 'index']);
 Route::get('/info/{slug}', [PageController::class, 'konten']);
@@ -34,8 +18,13 @@ Route::get('/info/{slug}', [PageController::class, 'konten']);
 Route::get('/login', [LoginController::class, 'index']);
 Route::post('/login', [LoginController::class, 'authenticate']);
 
-// Route::get('/admin', [LoginController::class, 'admin'])->middleware('cekadmin');
+Route::get('/admin/photo', [PhotoController::class, 'index']);
+Route::get('/admin/phototag/{id}/edit', [PhotoController::class, 'editPhotoTag']);
+Route::post('/admin/phototag', [PhotoController::class, 'storePhotoTag']);
+Route::delete('/admin/phototag/{id}/hapus', [PhotoController::class, 'deletePhotoTag']);
+
 Route::get('/admin', [DashadminController::class, 'index'])->middleware('cekadmin');
+
 Route::get('/admin/konten', [PenggunaController::class, 'index']);
 Route::get('/admin/konten/{id}', [PenggunaController::class, 'ubahkonten']);
 Route::patch('/admin/konten/ubah/{id}', [PenggunaController::class, 'updatekonten']);
@@ -80,6 +69,7 @@ Route::patch('/admin/pengguna/reset/{id}', [PenggunaController::class, 'savepass
 Route::get('/admin/akun/pass/{id}', [PenggunaController::class, 'passakun']);
 Route::patch('/admin/akun/save/{id}', [PenggunaController::class, 'savepassakun']);
 
+
 Route::get('/search/hasil', [SearchController::class, 'index']);
 Route::post('/search', [SearchController::class, 'index']);
 
@@ -89,6 +79,9 @@ Route::get('/logout', [LoginController::class, 'logout']);
 // clear all cache
 Route::get('/clear-cache-all', function() {
     Artisan::call('cache:clear');
+    Artisan::call('config:cache');
+    Artisan::call('route:cache');
+    Artisan::call('view:cache');
     dd("Cache Clear All");
 });
 
