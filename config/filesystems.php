@@ -30,15 +30,15 @@ return [
 
     'disks' => [
 
-        'local' => [
-            'driver' => 'local',
-            'root' => public_path(),
-        ],
-
         // 'local' => [
         //     'driver' => 'local',
-        //     'root' => storage_path('app'),
+        //     'root' => public_path(),
         // ],
+
+        'local' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public'),
+        ],
 
         'public_artikel' => [
             'driver' => 'local',

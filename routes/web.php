@@ -10,7 +10,7 @@ use App\Http\Controllers\PhotoController;
 use App\Http\Controllers\SearchController;
 use Illuminate\Support\Facades\Artisan;
 
-// Jalan kan artisan route:cache setiap menambah route
+
 
 Route::get('/', [PageController::class, 'index']);
 Route::get('/info/{slug}', [PageController::class, 'konten']);
@@ -18,10 +18,17 @@ Route::get('/info/{slug}', [PageController::class, 'konten']);
 Route::get('/login', [LoginController::class, 'index']);
 Route::post('/login', [LoginController::class, 'authenticate']);
 
-Route::get('/admin/photo', [PhotoController::class, 'index']);
+Route::get('/admin/phototag', [PhotoController::class, 'index']);
 Route::get('/admin/phototag/{id}/edit', [PhotoController::class, 'editPhotoTag']);
 Route::post('/admin/phototag', [PhotoController::class, 'storePhotoTag']);
 Route::delete('/admin/phototag/{id}/hapus', [PhotoController::class, 'deletePhotoTag']);
+
+Route::get('/admin/photo', [PhotoController::class, 'photo']);
+Route::patch('/admin/photo', [PhotoController::class, 'storePhoto']);
+Route::get('/admin/photo/{id}', [PhotoController::class, 'editPhoto']);
+Route::patch('/admin/photo/{id}/edit', [PhotoController::class, 'editProcessPhoto']);
+Route::get('/admin/photo/{id}/find', [PhotoController::class, 'findPhoto']);
+Route::delete('/admin/photo/{id}/hapus', [PhotoController::class, 'deletePhoto']);
 
 Route::get('/admin', [DashadminController::class, 'index'])->middleware('cekadmin');
 

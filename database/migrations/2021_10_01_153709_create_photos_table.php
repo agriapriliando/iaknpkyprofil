@@ -16,6 +16,7 @@ class CreatePhotosTable extends Migration
         Schema::create('photos', function (Blueprint $table) {
             $table->id();
             $table->foreignId('phototag_id')->constrained('phototags')->onUpdate('cascade')->onDelete('cascade');
+            $table->string('img');
             $table->string('judul');
             $table->string('owner',100);
             $table->string('slug');

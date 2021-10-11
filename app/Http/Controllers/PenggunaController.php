@@ -267,7 +267,7 @@ class PenggunaController extends Controller
             })->save($destinationPath.'/'.$imageName);
             
             // file request disimpan
-            $request->file('img')->storeAs('asset/img/berita', $imageName, 'local');
+            $request->file('img')->storeAs('', $imageName, 'public_artikel');
 
             // dapatkan nama foto lama
             $filename  = $artikel->img;
@@ -338,7 +338,7 @@ class PenggunaController extends Controller
         })->save($destinationPath.'/'.$imageName);
 
         // file request disimpan
-        $request->file('img')->storeAs('asset/img/berita', $imageName, 'local');
+        $request->file('img')->storeAs('', $imageName, 'public_artikel');
         
         $artikel->judul = $request->judul;
         $artikel->isi = $request->isi;
