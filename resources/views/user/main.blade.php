@@ -109,7 +109,7 @@
                         <div class="collapse" id="collapseGallery" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
                                 <a class="nav-link" href="{{ url('admin/photo') }}"><div class="sb-nav-link-icon"><i class="fas fa-images"></i></div> Photo</a>
-                                <a class="nav-link" href="{{ url('admin/phototag') }}"><div class="sb-nav-link-icon"><i class="fas fa-archive"></i></div> Album</a>
+                                <a class="nav-link" href="{{ url('admin/phototag') }}"><div class="sb-nav-link-icon"><i class="fas fa-archive"></i></div> Phototag</a>
                             </nav>
                         </div>
         
