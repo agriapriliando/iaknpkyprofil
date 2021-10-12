@@ -101,15 +101,15 @@
                             </nav>
                         </div>
                         
-                        <a style="display: none" class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseGallery" aria-expanded="false" aria-controls="collapseGallery">
+                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseGallery" aria-expanded="false" aria-controls="collapseGallery">
                             <div class="sb-nav-link-icon"><i class="fas fa-photo-video"></i></div>
                             Gallery
                             <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
                         </a>
                         <div class="collapse" id="collapseGallery" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" href="#"><div class="sb-nav-link-icon"><i class="fas fa-images"></i></div> Lihat Gallery</a>
-                                <a class="nav-link" href="#"><div class="sb-nav-link-icon"><i class="fas fa-archive"></i></div> Album</a>
+                                <a class="nav-link" href="{{ url('admin/photo') }}"><div class="sb-nav-link-icon"><i class="fas fa-images"></i></div> Photo</a>
+                                <a class="nav-link" href="{{ url('admin/phototag') }}"><div class="sb-nav-link-icon"><i class="fas fa-archive"></i></div> Album</a>
                             </nav>
                         </div>
         
