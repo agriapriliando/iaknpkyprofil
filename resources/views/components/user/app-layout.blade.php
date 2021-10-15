@@ -163,6 +163,16 @@
         <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
         <script src="{{asset('assetuser/assets/demo/datatables-demo.js')}}"></script>
         <script>
+            function copyToClipboard(element) {
+                var $temp = $("<input>");
+                $("body").append($temp);
+                $temp.val($(element).text()).select();
+                var $data = $temp.val($(element).text()).select();
+                console.log($data);
+                document.execCommand("copy");
+                $temp.remove();
+                }
+            
             function copyText() {
             /* Get the text field */
             var copyText = document.getElementById("copyText");
