@@ -4,6 +4,7 @@
 /public/asset/img/berita
 /storage/*.key
 /vendor
+/db
 .env
 .env.backup
 .phpunit.result.cache
