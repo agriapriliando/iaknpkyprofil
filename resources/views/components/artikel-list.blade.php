@@ -12,20 +12,20 @@
             @foreach ($artikel as $ar)
             <div class="row m-3">
                 <div class="col-lg-4 col-md-4 col-12 mb-xs-3">
-                    <a href="{{$ar->slug}}"><img class="card-img-top" src="{{ url('asset/img/berita/thumbnails/'.$ar->img)}}" alt="..."></a>
+                    <a href="{{$ar->slug}}"><img style="max-width: 250; max-height: 250px; object-fit: cover;" class="card-img-top" src="{{ url('asset/img/berita/thumbnails/'.$ar->img)}}" alt="..."></a>
                 </div>
                 <div class="col-lg-8 col-md-8 col-12">
                     <a href="{{$ar->slug}}">
                     <p class="card-text fw-bold p-0 mb-2">{{$ar->judul}} </p>
                     <p class="fst-italic p-0 m-0">
-                        <span class="mx-1" style="font-size: 1.5vh"><i class="fas fa-user-tie me-1"></i>By {{$ar->user->name}}</span>
+                        <span class="mx-1" style="font-size: 2.5vh"><i class="fas fa-user-tie me-1"></i>By {{$ar->user->name}}</span>
                     </p>
                     <p class="fst-italic p-0 m-0">
-                        <span class="mx-1" style="font-size: 1.5vh"><i class="far fa-calendar-alt me-1"></i>{{date('d F, Y', strtotime($ar->created_at))}}</span>
-                        <span class="mx-1" style="font-size: 1.5vh"><i class="far fa-clock me-1"></i>{{date('H:i:s', strtotime($ar->created_at))}} WIB</span>
-                        <span class="mx-1" style="font-size: 1.5vh"><i class="fas fa-layer-group me-1"></i>{{$ar->kategori->judul}}</span>
+                        <span class="mx-1" style="font-size: 2.5vh"><i class="far fa-calendar-alt me-1"></i>{{date('d F, Y', strtotime($ar->created_at))}}</span>
+                        <span class="mx-1" style="font-size: 2.5vh"><i class="far fa-clock me-1"></i>{{date('H:i:s', strtotime($ar->created_at))}} WIB</span>
+                        <span class="mx-1" style="font-size: 2.5vh"><i class="fas fa-layer-group me-1"></i>{{$ar->kategori->judul}}</span>
                     </p>
-                    <p class="card-text" style="text-align: justify;">{!!Str::words($ar->isi, 20)!!}<span style="color:purple;"> Selengkapnya</span></p>
+                    {{-- <p class="card-text" style="text-align: justify;">{!!Str::words($ar->isi, 20)!!}<span style="color:purple;"> Selengkapnya</span></p> --}}
                     </a>
                 </div>
             </div>
@@ -35,7 +35,7 @@
             <!-- pagination -->
             <div class="row mt-2">
                 <div class="col">
-                    {{ $artikel->links() }}
+                    {{ $artikel->onEachSide(1)->links() }}
                     {{ $slot }}
                 </div>
             </div>
@@ -61,7 +61,7 @@
                 @foreach ($terbaru as $ter)
                 <div class="row border border-1 py-2">
                     <div class="col-lg-4 col-md-4 col-3">
-                        <img class="card-img-top" src="{{ url('asset/img/berita/thumbnails/'.$ter->img)}}" alt="...">
+                        <img style="max-width: 270; max-height: 270px; object-fit: cover;" class="card-img-top" src="{{ url('asset/img/berita/thumbnails/'.$ter->img)}}" alt="...">
                     </div>
                     <div class="col-lg-8 col-md-8 col-9">
                         <a class="link-dark" href="{{url(''.$ter->slug)}}">{{$ter->judul}}</a><br>

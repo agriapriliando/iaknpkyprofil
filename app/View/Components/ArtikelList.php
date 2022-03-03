@@ -3,6 +3,7 @@
 namespace App\View\Components;
 
 use App\Models\Artikel;
+use Carbon\Carbon;
 use Illuminate\View\Component;
 
 class ArtikelList extends Component
@@ -26,7 +27,11 @@ class ArtikelList extends Component
     {
         //passing data artikel
         $artikel = Artikel::with('kategori')->orderByDesc('created_at')->paginate(4)->withQueryString();
-        $populer = Artikel::orderByDesc('dilihat')->limit(5)->get();
+        $today = Carbon::now();
+        $monthh = $today->month;
+        $lastmonth = $today->subMonth()->month;
+        // berita populer last two months
+        $populer = Artikel::whereYear('created_at',$today->year)->whereMonth('created_at',$today->month)->whereMonth('created_at',$lastmonth)->orderByDesc('dilihat')->limit(4)->get();
         $terbaru = Artikel::orderByDesc('created_at')->limit(5)->get();
 
         return view('components.artikel-list', compact(

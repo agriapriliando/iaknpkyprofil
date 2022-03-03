@@ -15,7 +15,7 @@
         <div class="col-lg-3 col-md-3 col-10 mb-2">
             <a href="{{$ar->slug}}">
             <div class="card">
-                <img class="card-img-top" src="asset/img/berita/thumbnails/{{$ar->img}}" alt="...">
+                <img style="max-width: 250; max-height: 250px; object-fit: cover;" class="card-img-top" src="asset/img/berita/thumbnails/{{$ar->img}}" alt="...">
                 <div class="card-body">
                     <p class="card-text fw-bold">{{$ar->judul}}</p>
                     <p class="card-text fst-italic fs-6">

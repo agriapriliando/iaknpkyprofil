@@ -29,7 +29,7 @@
                 @foreach ($terbaru as $ter)
                 <div class="row border border-1 py-2">
                     <div class="col-lg-4 col-md-4 col-3">
-                        <img class="card-img-top" src="{{ url('asset/img/berita/thumbnails/'.$ter->img) }}" alt="...">
+                        <img style="max-width: 270; max-height: 270px; object-fit: cover;" class="card-img-top" src="{{ url('asset/img/berita/thumbnails/'.$ter->img) }}" alt="...">
                     </div>
                     <div class="col-lg-8 col-md-8 col-9">
                         <a class="link-dark" href="{{url(''.$ter->slug)}}">{{$ter->judul}}</a><br>
