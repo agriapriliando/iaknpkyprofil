@@ -547,4 +547,12 @@ class PenggunaController extends Controller
         return redirect('admin/akun/pass/'.$id)->with('status', 'Password Anda Berhasil dirubah');
     }
 
+    public function slide()
+    {
+        $id_ses = session()->get('id');
+        $user = User::where('id',$id_ses)->first();
+
+        return view('user.slide.ubah',compact('user'));
+    }
+
 }

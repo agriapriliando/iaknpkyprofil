@@ -112,6 +112,18 @@
                                 <a class="nav-link" href="{{ url('admin/phototag') }}"><div class="sb-nav-link-icon"><i class="fas fa-archive"></i></div> Phototag</a>
                             </nav>
                         </div>
+
+                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSlide" aria-expanded="false" aria-controls="collapseSlide">
+                            <div class="sb-nav-link-icon"><i class="fas fa-photo-video"></i></div>
+                            Slide Beranda
+                            <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                        </a>
+                        <div class="collapse" id="collapseSlide" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+                            <nav class="sb-sidenav-menu-nested nav">
+                                <a class="nav-link" href="{{ url('admin/photo') }}"><div class="sb-nav-link-icon"><i class="fas fa-images"></i></div> Lihat</a>
+                                <a class="nav-link" href="{{ url('admin/phototag') }}"><div class="sb-nav-link-icon"><i class="fas fa-archive"></i></div> Ubah</a>
+                            </nav>
+                        </div>
         
                         <div class="sb-sidenav-menu-heading">Setting Navigasi</div>
                         <a class="nav-link" href="{{url('admin/menu')}}">
