@@ -31,17 +31,65 @@
                 @endif
             </div>
             <div class="card-body">
-                <div class="row">
-                    <div class="col-12 col-md-6 border rounded-2 p-1">
-                        <img src="{{asset('uploads/slide/slide1.png')}}" class="img-fluid d-block" alt="...">
+                <div class="row justify-content-center">
+                    {{-- slide 1 --}}
+                    <div class="col-12 col-md-8 mb-3 border rounded-2 p-1">
+                        <img src="{{asset('uploads/slide/slide1.jpg')}}" class="img-fluid d-block" alt="...">
                         <div class="text-center">
-                            <a href="#" class="btn btn-primary btn-sm m-1">Urut : 1 - Ubah Gambar</a>
+                            <form action="{{ url('admin/slideupload/slide1.jpg') }}" method="POST" enctype="multipart/form-data">
+                                @method('PATCH')
+                                @csrf
+                                <input name="imgslide" type="file" class="mt-1 px-3 form-control @error('imgslide') is-invalid @enderror" required>
+                                @error('imgslide')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                                <button type="submit" class="btn btn-primary mt-1">Ganti Foto Slide Pertama</button>
+                            </form>
                         </div>
                     </div>
-                    <div class="col-12 col-md-6 border rounded-2 p-1">
-                        <img src="{{asset('uploads/slide/slide2.png')}}" class="img-fluid d-block" alt="...">
+                    {{-- slide 2 --}}
+                    <div class="col-12 col-md-8 mb-3 border rounded-2 p-1">
+                        <img src="{{asset('uploads/slide/slide2.jpg')}}" class="img-fluid d-block" alt="...">
                         <div class="text-center">
-                            <a href="#" class="btn btn-primary btn-sm m-1">Urut : 2 - Ubah Gambar</a>
+                            <form action="{{ url('admin/slideupload/slide2.jpg') }}" method="POST" enctype="multipart/form-data">
+                                @method('PATCH')
+                                @csrf
+                                <input name="imgslide" type="file" class="mt-1 px-3 form-control @error('imgslide') is-invalid @enderror" required>
+                                @error('imgslide')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                                <button type="submit" class="btn btn-primary mt-1">Ganti Foto Slide Kedua</button>
+                            </form>
+                        </div>
+                    </div>
+                    {{-- slide 3 --}}
+                    <div class="col-12 col-md-8 mb-3 border rounded-2 p-1">
+                        <img src="{{asset('uploads/slide/slide3.jpg')}}" class="img-fluid d-block" alt="...">
+                        <div class="text-center">
+                            <form action="{{ url('admin/slideupload/slide3.jpg') }}" method="POST" enctype="multipart/form-data">
+                                @method('PATCH')
+                                @csrf
+                                <input name="imgslide" type="file" class="mt-1 px-3 form-control @error('imgslide') is-invalid @enderror" required>
+                                @error('imgslide')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                                <button type="submit" class="btn btn-primary mt-1">Ganti Foto Slide Ketiga</button>
+                            </form>
+                        </div>
+                    </div>
+                    {{-- slide 4 --}}
+                    <div class="col-12 col-md-8 mb-3 border rounded-2 p-1">
+                        <img src="{{asset('uploads/slide/slide4.jpg')}}" class="img-fluid d-block" alt="...">
+                        <div class="text-center">
+                            <form action="{{ url('admin/slideupload/slide4.jpg') }}" method="POST" enctype="multipart/form-data">
+                                @method('PATCH')
+                                @csrf
+                                <input name="imgslide" type="file" class="mt-1 px-3 form-control @error('imgslide') is-invalid @enderror" required>
+                                @error('imgslide')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                                @enderror
+                                <button type="submit" class="btn btn-primary mt-1">Ganti Foto Slide Keempat</button>
+                            </form>
                         </div>
                     </div>
                 </div>

@@ -50,6 +50,11 @@ return [
             'root'   => public_path('asset/img/berita/thumbnails'),
         ],
 
+        'image_slide' => [
+            'driver' => 'local',
+            'root'   => public_path('uploads/slide'),
+        ],
+
         'public' => [
             'driver' => 'local',
             'root' => storage_path('app/public'),

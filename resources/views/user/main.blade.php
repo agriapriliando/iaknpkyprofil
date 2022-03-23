@@ -120,7 +120,7 @@
                         </a>
                         <div class="collapse" id="collapseSlide" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                             <nav class="sb-sidenav-menu-nested nav">
-                                <a class="nav-link" href="{{ url('admin/photo') }}"><div class="sb-nav-link-icon"><i class="fas fa-images"></i></div> Ubah</a>
+                                <a class="nav-link" href="{{ url('admin/slide') }}"><div class="sb-nav-link-icon"><i class="fas fa-images"></i></div> Ubah</a>
                             </nav>
                         </div>
         

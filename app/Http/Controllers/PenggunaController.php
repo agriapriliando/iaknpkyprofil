@@ -354,6 +354,23 @@ class PenggunaController extends Controller
         return redirect('admin/artikel')->with('status', 'Berita berhasil ditambahkan');
     }
 
+    public function slideupload($imageName, Request $request)
+    {
+        // $request->validate([
+        //     'imgslide' => 'required'
+        // ]);
+
+        // return $imageName;
+
+        if(Storage::disk('image_slide')->exists($imageName)) {
+            Storage::disk('image_slide')->delete($imageName);
+        }
+
+        $request->file('imgslide')->storeAs('', $imageName, 'image_slide');
+
+        return redirect('admin/slide')->with('status', 'Gambar Slide : '.$imageName.' berhasil dirubah');
+    }
+
     public function hapusartikel($id)
     {
         $artikel = Artikel::find($id);

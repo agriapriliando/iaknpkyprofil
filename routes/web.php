@@ -77,6 +77,7 @@ Route::get('/admin/akun/pass/{id}', [PenggunaController::class, 'passakun']);
 Route::patch('/admin/akun/save/{id}', [PenggunaController::class, 'savepassakun']);
 
 Route::get('/admin/slide', [PenggunaController::class, 'slide']);
+Route::patch('/admin/slideupload/{imageName}', [PenggunaController::class, 'slideupload']);
 
 Route::get('/search/hasil', [SearchController::class, 'index']);
 Route::post('/search', [SearchController::class, 'index']);

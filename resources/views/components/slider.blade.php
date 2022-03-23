@@ -1,4 +1,5 @@
-<div class="pb-2 sectiondua">
+<div class="pb-2 sectiondua row justify-content-center">
+  <div class="col-md-7 col-12">
     <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
           <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -9,20 +10,17 @@
         </div>
         <div class="carousel-inner">
             <div class="carousel-item active">
-              <img src="{{asset('uploads/slide/slide1.png')}}" class="d-block w-100" alt="...">
-            </div>
-            {{-- <div class="carousel-item">
-              <img src="{{asset('uploads/slide/slide2.png')}}" class="d-block w-100" alt="...">
+              <img src="{{asset('uploads/slide/slide1.jpg')}}" class="d-block w-100" alt="...">
             </div>
             <div class="carousel-item">
-              <img src="{{asset('uploads/slide/slide3.png')}}" class="d-block w-100" alt="...">
+              <img src="{{asset('uploads/slide/slide2.jpg')}}" class="d-block w-100" alt="...">
             </div>
             <div class="carousel-item">
-              <img src="{{asset('uploads/slide/slide4.png')}}" class="d-block w-100" alt="...">
+              <img src="{{asset('uploads/slide/slide3.jpg')}}" class="d-block w-100" alt="...">
             </div>
             <div class="carousel-item">
-              <img src="{{asset('uploads/slide/slide5.png')}}" class="d-block w-100" alt="...">
-            </div>   --}}
+              <img src="{{asset('uploads/slide/slide4.jpg')}}" class="d-block w-100" alt="...">
+            </div> 
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"  data-bs-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -33,4 +31,5 @@
           <span class="visually-hidden">Next</span>
         </button>
     </div>
+  </div>
 </div>
