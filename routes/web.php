@@ -88,6 +88,9 @@ Route::get('/logout', [LoginController::class, 'logout']);
 // clear all cache
 Route::get('/clear-cache-all', function() {
     Artisan::call('cache:clear');
+    Artisan::call('config:clear');
+    Artisan::call('route:clear');
+    Artisan::call('view:clear');
     Artisan::call('config:cache');
     Artisan::call('route:cache');
     Artisan::call('view:cache');
