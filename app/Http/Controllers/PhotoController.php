@@ -101,7 +101,7 @@ class PhotoController extends Controller
     {
         $request->validate([
             'judul' => 'required',
-            'photo' => 'image|mimes:png,jpg,jpeg|max:200|dimensions:ratio=4/3',
+            'photo' => 'image|mimes:png,jpg,jpeg|max:250',
         ],[
             'judul.required' => 'Kolom Judul Tidak Boleh Kosong',
             'photo.size' => 'Ukuran Foto harus lebih kecil dari 200kb',
@@ -159,7 +159,7 @@ class PhotoController extends Controller
     {
         $request->validate([
             'judul' => 'required',
-            'photo' => 'required|image|mimes:png,jpg,jpeg|max:200|dimensions:ratio=4/3',
+            'photo' => 'required|image|mimes:png,jpg,jpeg|max:250',
         ],[
             'judul.required' => 'Kolom Judul Tidak Boleh Kosong',
             'photo.required' => 'Silahkan Memilih Foto',
