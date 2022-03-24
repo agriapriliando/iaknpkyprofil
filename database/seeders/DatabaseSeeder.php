@@ -22,7 +22,8 @@ class DatabaseSeeder extends Seeder
             // KontenSeeder::class,
             // KategoriSeeder::class,
             // ArtikelSeeder::class,
-            PageviewSeeder::class
+            // PageviewSeeder::class,
+            SlideSeeder::class
         ]);
     }
 }

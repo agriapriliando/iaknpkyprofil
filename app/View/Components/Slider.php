@@ -2,6 +2,7 @@
 
 namespace App\View\Components;
 
+use App\Models\Slide;
 use Illuminate\View\Component;
 
 class Slider extends Component
@@ -23,6 +24,10 @@ class Slider extends Component
      */
     public function render()
     {
-        return view('components.slider');
+        $slide1 = Slide::where('urutan',1)->first();
+        $slide2 = Slide::where('urutan',2)->first();
+        $slide3 = Slide::where('urutan',3)->first();
+        $slide4 = Slide::where('urutan',4)->first();
+        return view('components.slider',compact('slide1','slide2','slide3','slide4'));
     }
 }

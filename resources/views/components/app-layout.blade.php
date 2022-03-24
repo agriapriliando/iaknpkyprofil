@@ -50,15 +50,16 @@
     slideBy: 'page',
     responsive: {
       320: {
-        items: 3
+        items: 4
       },
       1000: {
-        items: 4
+        items: 5
       },
       1400: {
         items: 7
       }
     },
+    speed: 400,
     controlsContainer: '#controls',
     prevButton: '.previous',
     nextButton: '.next',

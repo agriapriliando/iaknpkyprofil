@@ -10,6 +10,7 @@ use App\Models\Menu;
 use App\Models\Menusub;
 use App\Models\Artikel;
 use App\Models\Kategori;
+use App\Models\Slide;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 use Carbon\Carbon;
@@ -354,21 +355,25 @@ class PenggunaController extends Controller
         return redirect('admin/artikel')->with('status', 'Berita berhasil ditambahkan');
     }
 
-    public function slideupload($imageName, Request $request)
+    public function slideupload(Request $request)
     {
-        // $request->validate([
-        //     'imgslide' => 'required'
-        // ]);
+        $request->validate([
+            'urutan' => 'required'
+        ]);
 
-        // return $imageName;
-
-        if(Storage::disk('image_slide')->exists($imageName)) {
-            Storage::disk('image_slide')->delete($imageName);
+        $slidecari = Slide::where('urutan',$request->urutan)->first();
+        if(Storage::disk('image_slide')->exists($slidecari->nameimg)) {
+            Storage::disk('image_slide')->delete($slidecari->nameimg);
         }
 
-        $request->file('imgslide')->storeAs('', $imageName, 'image_slide');
+        $slide = Slide::where('urutan',$request->urutan)->first();
+        $nameimg = Carbon::now()->format('mYdHi')."slide".$request->urutan.".".$request->file('imgslide')->extension();
+        $slide->nameimg = $nameimg;
+        $slide->save();
 
-        return redirect('admin/slide')->with('status', 'Gambar Slide : '.$imageName.' berhasil dirubah');
+        $request->file('imgslide')->storeAs('', $nameimg, 'image_slide');
+
+        return redirect('admin/slide')->with('status', 'Gambar Slide : '.$slidecari->urutan.' berhasil dirubah');
     }
 
     public function hapusartikel($id)
@@ -568,8 +573,9 @@ class PenggunaController extends Controller
     {
         $id_ses = session()->get('id');
         $user = User::where('id',$id_ses)->first();
+        $slides = Slide::all();
 
-        return view('user.slide.ubah',compact('user'));
+        return view('user.slide.ubah',compact('user','slides'));
     }
 
 }
