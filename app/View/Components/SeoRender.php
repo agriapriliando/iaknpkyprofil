@@ -32,11 +32,13 @@ class SeoRender extends Component
         $stringg = strip_tags($artikeldt->isi);
         $string = str_replace('"',' ',$stringg);
         seo()->description(Str::limit($string,500));
-        } elseif($slug == "info") {
-            $konten = Konten::where('slug', $sluginfo)->first();
-            seo()->description($konten->judul." IAKN Palangka Raya | IAKNPKY");
-        } else {
-            seo()->description("IAKN Palangka Raya | IAKNPKY");
+    } elseif($slug == "info") {
+        $konten = Konten::where('slug', $sluginfo)->first();
+        seo()->description($konten->judul." IAKN Palangka Raya | IAKNPKY");
+        seo()->og('title', 'IAKN Palangka Raya');
+    } else {
+        seo()->description("IAKN Palangka Raya | IAKNPKY");
+        seo()->og('title', 'IAKN Palangka Raya');
         }
     }
 
@@ -50,7 +52,6 @@ class SeoRender extends Component
         seo()->csrfToken();
         $banner = url('asset/img/logo_iaknpky-min.png');
         $urlseo = url('');
-        seo()->og('title', 'IAKN Palangka Raya');
         seo()->og('site_name', 'Profil IAKN Palangka Raya');
         seo()->og('locale', 'in_ID');
         seo()->og('type', 'website');
