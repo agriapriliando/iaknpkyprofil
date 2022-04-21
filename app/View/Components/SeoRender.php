@@ -24,21 +24,22 @@ class SeoRender extends Component
         $sluginfo = $request->segment(2);
         $artikeldt = Artikel::where('slug', $slug)->first();
         if ($artikeldt) {
-        $img = url('/asset/img/berita/thumbnails/'.$artikeldt->img);
-        seo()->og('url', URL::current());
-        seo()->og('image', $img);
-        seo()->twitter('image', $img);
-        seo()->title('IAKN PKY -'.$artikeldt->judul);
-        $stringg = strip_tags($artikeldt->isi);
-        $string = str_replace('"',' ',$stringg);
-        seo()->description(Str::limit($string,500));
-    } elseif($slug == "info") {
-        $konten = Konten::where('slug', $sluginfo)->first();
-        seo()->description($konten->judul." IAKN Palangka Raya | IAKNPKY");
-        seo()->og('title', 'IAKN Palangka Raya');
-    } else {
-        seo()->description("IAKN Palangka Raya | IAKNPKY");
-        seo()->og('title', 'IAKN Palangka Raya');
+            $img = url('/asset/img/berita/thumbnails/'.$artikeldt->img);
+            seo()->og('url', URL::current());
+            seo()->og('image', $img);
+            seo()->og('title', $artikeldt->judul);
+            seo()->twitter('image', $img);
+            seo()->title('IAKN PKY -'.$artikeldt->judul);
+            $stringg = strip_tags($artikeldt->isi);
+            $string = str_replace('"',' ',$stringg);
+            seo()->description(Str::limit($string,500));
+        } elseif($slug == "info") {
+            $konten = Konten::where('slug', $sluginfo)->first();
+            seo()->description($konten->judul." IAKN Palangka Raya | IAKNPKY");
+            seo()->og('title', 'IAKN Palangka Raya');
+        } else {
+            seo()->description("IAKN Palangka Raya | IAKNPKY");
+            seo()->og('title', 'IAKN Palangka Raya');
         }
     }
 
@@ -50,9 +51,7 @@ class SeoRender extends Component
     public function render()
     {
         seo()->csrfToken();
-        $banner = url('asset/img/logo_iaknpky-min.png');
-        $urlseo = url('');
-        seo()->og('site_name', 'Profil IAKN Palangka Raya');
+        seo()->og('site_name', 'Website IAKN Palangka Raya IAKNPKY');
         seo()->og('locale', 'in_ID');
         seo()->og('type', 'website');
         seo()->add(
@@ -66,7 +65,7 @@ class SeoRender extends Component
             ->attr('content', '250')
         );
         seo()->twitter('card', 'summary_large_image');
-        seo()->twitter('site', 'Profil IAKN Palangka Raya');
+        seo()->twitter('site', 'Website IAKN Palangka Raya IAKNPKY IAKNP PKY');
 
         return view('components.seo-render');
     }
