@@ -10,6 +10,7 @@ use App\Models\Artikel;
 use App\Models\Pageview;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Cookie;
+use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Str;
 
 class ArtikelController extends Controller
