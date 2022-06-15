@@ -28,6 +28,8 @@ class Slider extends Component
         $slide2 = Slide::where('urutan',2)->first();
         $slide3 = Slide::where('urutan',3)->first();
         $slide4 = Slide::where('urutan',4)->first();
-        return view('components.slider',compact('slide1','slide2','slide3','slide4'));
+        $slide5 = Slide::where('urutan',5)->first();
+        $slide6 = Slide::where('urutan',6)->first();
+        return view('components.slider',compact('slide1','slide2','slide3','slide4','slide5','slide6'));
     }
 }

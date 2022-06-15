@@ -43,6 +43,8 @@
                                     <option value="2">Dua</option>
                                     <option value="3">Tiga</option>
                                     <option value="4">Empat</option>
+                                    <option value="5">Lima</option>
+                                    <option value="6">Enam</option>
                                 </select>
 
                                 <input name="imgslide" type="file" class="mt-1 px-3 form-control @error('imgslide') is-invalid @enderror" required>
@@ -58,9 +60,12 @@
                     @foreach ($slides as $item)
                     {{-- slide 1 --}}
                     <div class="col-12 col-md-8 mb-3 border rounded-2 p-1">
-                        <p class="h-6 text-center">Slide {{ $item->urutan }}</p>
-                        <img src="{{asset('uploads/slide/'.$item->nameimg)}}" class="img-fluid d-block" alt="...">
+                        <img src="{{asset('uploads/slide/'.$item->nameimg)}}" class="img-fluid d-block position-relative" alt="...">
+                        <div class="position-absolute btn btn-primary" style="top: 50%; right: 50%;">
+                            <p class="h-3 text-center text-white">Slide {{ $item->urutan }}</p>
+                        </div>
                     </div>
+                    <hr class="mt-2 mb-3"/>
                     @endforeach
                     
                     

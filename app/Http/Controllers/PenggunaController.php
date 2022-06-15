@@ -361,15 +361,25 @@ class PenggunaController extends Controller
             'urutan' => 'required'
         ]);
 
-        $slidecari = Slide::where('urutan',$request->urutan)->first();
-        if(Storage::disk('image_slide')->exists($slidecari->nameimg)) {
-            Storage::disk('image_slide')->delete($slidecari->nameimg);
+        // kode lama cek ada atau tidak slide yang ingin diganti
+        // $slidecari = Slide::where('urutan',$request->urutan)->first();
+        // $slide = Slide::where('urutan',$request->urutan)->first();
+        // $nameimg = "slide".$request->urutan.".".$request->file('imgslide')->extension();
+        
+        $nameimg = "slide".$request->urutan.".jpg";
+        
+        $slidecari = Slide::updateOrCreate(
+            ['urutan' =>  $request->urutan],
+            ['nameimg' => $nameimg]
+        );
+        
+        if(Storage::disk('image_slide')->exists($nameimg)) {
+            Storage::disk('image_slide')->delete($nameimg);
         }
-
-        $slide = Slide::where('urutan',$request->urutan)->first();
-        $nameimg = Carbon::now()->format('mYdHi')."slide".$request->urutan.".".$request->file('imgslide')->extension();
-        $slide->nameimg = $nameimg;
-        $slide->save();
+        
+        // kode lama
+        // $slide->nameimg = $nameimg;
+        // $slide->save();
 
         $request->file('imgslide')->storeAs('', $nameimg, 'image_slide');
 
