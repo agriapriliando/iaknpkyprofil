@@ -44,33 +44,24 @@
     </div>
     <div class="row justify-content-center">
         <div class="col-lg-9 col-md-9 col-11">
-            <div class="p-1 mb-1" style="border-bottom: 2px solid black">
-                <h3>Kolom Berita</h3>
+            <div class="p-1 mb-1">
+                <h3>Halaman Info</h3>
             </div>
-            @if($hasil->count())
-            <!-- daftar berita -->
-            @foreach ($hasil as $ar)
+            @if($hasill->count())
+            <!-- daftar info -->
+            @foreach ($hasill as $al)
             <div class="row p-1">
                 <div class="col-lg-10 col-md-10 col-12">
-                    <a href="{{$ar->slug}}">
-                    <p class="card-text fw-bold p-0 mb-2"><span class="btn btn-primary">{{$loop->iteration}}</span> {{$ar->judul}} </p>
-                    <p class="fst-italic p-0 m-0">
-                        <span class="mx-1" style="font-size: 1.5vh"><i class="far fa-calendar-alt me-1"></i>{{date('d F, Y', strtotime($ar->created_at))}}</span>
-                        <span class="mx-1" style="font-size: 1.5vh"><i class="far fa-clock me-1"></i>{{date('H:i:s', strtotime($ar->created_at))}} WIB</span>
-                        <span class="mx-1" style="font-size: 1.5vh"><i class="fas fa-layer-group me-1"></i>{{$ar->kategori->judul}}</span>
+                    <a href="info/{{$al->slug}}">
+                    <p class="card-text fw-bold p-0 mb-2"><span class="btn btn-primary">{{$loop->iteration}}</span> {{$al->judul}} 
+                        <span class="mx-1" style="font-size: 1.5vh"><i class="far fa-calendar-alt me-1"></i>{{date('d F, Y', strtotime($al->created_at))}}</span>
+                        <span class="mx-1" style="font-size: 1.5vh"><i class="far fa-clock me-1"></i>{{date('H:i:s', strtotime($al->created_at))}} WIB</span>
                     </p>
-                    <p class="card-text" style="text-align: justify;">{!!Str::words($ar->isi, 25)!!}<span style="color:purple;"> Selengkapnya</span></p>
                     </a>
                 </div>
             </div>
             @endforeach
-            <!-- end daftar berita -->
-
-            <!-- pagination -->
-            {{-- <div class="row mt-2 text-center">
-                {{ $hasil->links() }}
-            </div> --}}
-              <!-- end pagination -->
+            <!-- end daftar info -->
             @else
             <div class="row p-3">
                 <div class="col-12">
@@ -82,22 +73,32 @@
     </div>
     <div class="row justify-content-center">
         <div class="col-lg-9 col-md-9 col-11">
-            <div class="p-1 mb-1" style="border-bottom: 2px solid black">
-                <h3>Halaman Info</h3>
+            <div class="p-1 mb-1">
+                <h3>Kolom Berita</h3>
             </div>
-            @if($hasill->count())
-            <!-- daftar info -->
-            @foreach ($hasill as $al)
+            @if($hasil->count())
+            <!-- daftar berita -->
+            @foreach ($hasil as $ar)
             <div class="row p-1">
                 <div class="col-lg-10 col-md-10 col-12">
-                    <a href="info/{{$al->slug}}">
-                    <p class="card-text fw-bold p-0 mb-2"><span class="btn btn-primary">{{$loop->iteration}}</span> {{$al->judul}} </p>
-                    <p class="card-text" style="text-align: justify;">{!!Str::words($al->isi, 25)!!}<span style="color:purple;"> Selengkapnya</span></p>
+                    <a href="{{$ar->slug}}">
+                    <p class="card-text fw-bold p-0 mb-2"><span class="btn btn-primary">{{$loop->iteration}}</span> {{$ar->judul}}
+
+                        <span class="mx-1" style="font-size: 1.5vh"><i class="far fa-calendar-alt me-1"></i>{{date('d F, Y', strtotime($ar->created_at))}}</span>
+                        <span class="mx-1" style="font-size: 1.5vh"><i class="far fa-clock me-1"></i>{{date('H:i:s', strtotime($ar->created_at))}} WIB</span>
+                        <span class="mx-1" style="font-size: 1.5vh"><i class="fas fa-layer-group me-1"></i>{{$ar->kategori->judul}}</span>
+                    </p>
                     </a>
                 </div>
             </div>
             @endforeach
-            <!-- end daftar info -->
+            <!-- end daftar berita -->
+
+            <!-- pagination -->
+            {{-- <div class="row mt-2 text-center">
+                {{ $hasil->links() }}
+            </div> --}}
+              <!-- end pagination -->
             @else
             <div class="row p-3">
                 <div class="col-12">

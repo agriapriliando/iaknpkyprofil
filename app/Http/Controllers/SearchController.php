@@ -19,7 +19,7 @@ class SearchController extends Controller
         $tb_insta = DB::table('toolbars')->where('jenis', 'instagram')->first();
         $tb_twitt = DB::table('toolbars')->where('jenis', 'twitter')->first();
         $tb_yt = DB::table('toolbars')->where('jenis', 'youtube')->first();
-        $menu = Menu::all();
+        $menu = Menu::where('judul','!=','hidden')->where('judul','!=','draft')->get();
         $menusub = Menusub::all();
 
         if($request->has('search')){
