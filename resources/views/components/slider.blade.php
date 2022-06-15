@@ -27,7 +27,7 @@
             </div>
             <div class="carousel-item">
               <a href="{{asset('uploads/slide/'.$slide4->nameimg)}}" target="_blank">
-                <img src="{{asset('uploads/slide/'.$slide5->nameimg)}}" class="d-block w-100" alt="...">
+                <img src="{{asset('uploads/slide/'.$slide4->nameimg)}}" class="d-block w-100" alt="...">
               </a>
             </div> 
             <div class="carousel-item">
