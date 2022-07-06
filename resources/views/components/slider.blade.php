@@ -1,3 +1,22 @@
+@section('carousel_style')
+<style>
+  .carousel-item img {
+      /* width: 100vw; */
+      height: 50vh;
+      /* height:100%; */
+      /* max-width:100%; */
+      object-fit: cover;
+      object-position: 50% 50%;
+  }
+
+  @media (min-width: 768px) {
+      .carousel-item img {
+          height: 60vh;
+      }
+  }
+</style>
+@endsection
+
 <div class="pb-2 sectiondua row justify-content-center m-0">
   <div class="col-md-9 col-12">
     <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="3000">

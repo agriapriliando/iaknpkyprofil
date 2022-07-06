@@ -18,7 +18,7 @@
     {{-- jquery --}}
     <script src="{{ asset('asset/js/jquery-3.5.1.min.js') }}"></script>
 </head>
-
+@yield('carousel_style')
 <body class="vh-100">
   <!-- Preloader -->
   {{-- <div class="preloader">
