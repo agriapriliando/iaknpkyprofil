@@ -17,6 +17,9 @@
 
     {{-- jquery --}}
     <script src="{{ asset('asset/js/jquery-3.5.1.min.js') }}"></script>
+
+    {{-- animate js --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
 </head>
 @yield('carousel_style')
 <body class="vh-100">
@@ -68,6 +71,27 @@
     autoplayText: ['Start', 'Stop'],
     nav: false,
   });
+  </script>
+  <script src="https://wowjs.uk/dist/wow.min.js"></script>
+  <script>
+   new WOW().init();
+   WOW.prototype.addBox = function(element) {
+    this.boxes.push(element);
+  };
+
+  // Init WOW.js and get instance
+  var wow = new WOW();
+  wow.init();
+
+  // Attach scrollSpy to .wow elements for detect view exit events,
+  // then reset elements and add again for animation
+  $('.wow').on('scrollSpy:exit', function() {
+    $(this).css({
+      'visibility': 'hidden',
+      'animation-name': 'none'
+    }).removeClass('animated');
+    wow.addBox(this);
+  }).scrollSpy();
   </script>
       
 </body>

@@ -1,12 +1,12 @@
 <div class="container-fluid angka-bg py-3">
     <div class="container">
-        <div class="row pt-3 pb-2 mt-3 text-center bg-white" style="border: 1px white solid; border-radius: 2vh;">
+        <div class="row pt-3 pb-2 mt-3 text-center bg-white wow animate__animated animate__flipInY" style="border: 1px white solid; border-radius: 2vh;">
             <h3 class="angka-font" style="color: #630640" class="fw-bold">IAKN PALANGKA RAYA DALAM ANGKA</h3>
         </div>
         <div class="mt-4">
             {{-- @yield('angka') --}}
             <div class="row justify-content-center my-3">
-                <div class="col-lg-3 col-md-3 col-6 my-2 angka">
+                <div class="col-lg-3 col-md-3 col-6 my-2 angka wow animate__animated animate__fadeInUp">
                     <a href="{{url('info/fakultas')}}">
                         <div class="text-center">
                             <img src="{{url('asset/img/layanan/icon_fakultas.png')}}" alt="...">
@@ -14,7 +14,7 @@
                         </div>
                     </a>
                 </div>
-                <div class="col-lg-3 col-md-3 col-6 my-2 angka">
+                <div class="col-lg-3 col-md-3 col-6 my-2 angka wow animate__animated animate__fadeInUp">
                     <a href="{{url('info/program-studi')}}">
                         <div class="text-center">
                             <img src="{{url('asset/img/layanan/icon_jurusan.png')}}" alt="...">
@@ -22,7 +22,7 @@
                         </div>
                     </a>
                 </div>
-                <div class="col-lg-3 col-md-3 col-6 my-2 angka">
+                <div class="col-lg-3 col-md-3 col-6 my-2 angka wow animate__animated animate__fadeInUp">
                     <a href="{{url('info/program-studi')}}">
                         <div class="text-center">
                             <img src="{{url('asset/img/layanan/icon_prodi.png')}}" alt="...">
@@ -30,7 +30,7 @@
                         </div>
                     </a>
                 </div>
-                <div class="col-lg-3 col-md-3 col-6 my-2 angka">
+                <div class="col-lg-3 col-md-3 col-6 my-2 angka wow animate__animated animate__fadeInUp">
                     <a href="{{url('info/pascasarjana')}}">
                         <div class="text-center">
                             <img src="{{url('asset/img/layanan/icon_pasca.png')}}" alt="...">

@@ -1,6 +1,6 @@
-<div class="dayak-bg">
+<div class="dayak-bg wow animate__animated animate__fadeInUp animate__faster">
 <div class="container">
-    <div class="row py-3">
+    <div class="row py-3 wow animate__animated animate__fadeInUp animate__rubberBand">
         <div class="col justify-content-xs-center">
             <div class="p-3 text-center">
                 <a href="{{url('artikel')}}">
@@ -10,9 +10,9 @@
         </div>
     </div>
     {{-- berita beranda --}}
-    <div class="row justify-content-center">
+    <div class="row justify-content-center wow animate__animated animate__fadeInUp">
         @foreach ($artikel as $ar)
-        <div class="col-lg-3 col-md-3 col-10 mb-2">
+        <div class="col-lg-3 col-md-3 col-10 mb-2 wow animate__animated animate__fadeInUp animate__delay-1s">
             <a href="{{$ar->slug}}">
             <div class="card">
                 <img style="max-width: 250; max-height: 250px; object-fit: cover;" class="card-img-top" src="asset/img/berita/thumbnails/{{$ar->img}}" alt="...">
@@ -31,7 +31,7 @@
         @endforeach
     </div>
     <div class="row">
-        <div class="d-grid gap-2 col-lg-4 col-md-4 col-6 mx-auto text-center my-3">
+        <div class="d-grid gap-2 col-lg-4 col-md-4 col-6 mx-auto text-center my-3 wow animate__animated animate__flipInY">
             <a href="{{url('artikel')}}" class="btn btn-primary">Lihat Selengkapnya</a>
         </div>
     </div>
