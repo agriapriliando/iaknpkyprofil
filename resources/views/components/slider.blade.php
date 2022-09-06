@@ -2,16 +2,16 @@
 <style>
   .carousel-item img {
       /* width: 100vw; */
-      height: 50vh;
+      height: 60vh;
       /* height:100%; */
       /* max-width:100%; */
       object-fit: cover;
       object-position: 50% 50%;
   }
 
-  @media (min-width: 768px) {
+  @media (max-width: 768px) {
       .carousel-item img {
-          height: 60vh;
+          height: 23vh;
       }
   }
 </style>
