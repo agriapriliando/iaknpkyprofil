@@ -46,7 +46,7 @@
                       </div>
                       <div class="mb-3">
                           <label class="form-label">Isi</label>
-                          <textarea name="isi" id="mytextarea" class="form-control @error('isi') is-invalid @enderror" rows="3">{{old('isi',$konten->isi)}}</textarea>
+                          <textarea name="isi" class="form-control @error('isi') is-invalid @enderror" rows="3">{{old('isi',$konten->isi)}}</textarea>
                           @error('isi')
                           <div class="invalid-feedback">{{ $message }}</div>
                           @enderror
