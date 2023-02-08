@@ -208,6 +208,8 @@ class PenggunaController extends Controller
 
     public function hapusmenusub($id)
     {
+        $konten = Konten::where('menusub_id',$id)->first();
+        $konten->delete();
         $menusub = Menusub::find($id);
         $menusub->delete();
 
