@@ -45,6 +45,10 @@
                                     <option value="4">Empat</option>
                                     <option value="5">Lima</option>
                                     <option value="6">Enam</option>
+                                    <option value="7">Tujuh</option>
+                                    <option value="8">Delapan</option>
+                                    <option value="9">Sembilan</option>
+                                    <option value="10">Sepuluh</option>
                                 </select>
 
                                 <input name="imgslide" type="file" class="mt-1 px-3 form-control @error('imgslide') is-invalid @enderror" required>

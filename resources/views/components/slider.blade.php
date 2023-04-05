@@ -19,7 +19,7 @@
 
 <div class="pb-2 sectiondua row justify-content-center m-0">
   <div class="col-md-9 col-12">
-    <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="3000">
+    <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="2500">
         <div class="carousel-indicators">
           <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
           <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -27,6 +27,10 @@
           <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3" aria-label="Slide 4"></button>
           <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4" aria-label="Slide 5"></button>
           <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="5" aria-label="Slide 6"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="6" aria-label="Slide 7"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="7" aria-label="Slide 8"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="8" aria-label="Slide 9"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="9" aria-label="Slide 10"></button>
         </div>
         <div class="carousel-inner">
             <div class="carousel-item active">
@@ -57,6 +61,26 @@
             <div class="carousel-item">
               <a href="{{asset('uploads/slide/'.$slide6->nameimg)}}" target="_blank">
                 <img src="{{asset('uploads/slide/'.$slide6->nameimg)}}" class="d-block w-100" alt="...">
+              </a>
+            </div> 
+            <div class="carousel-item">
+              <a href="{{asset('uploads/slide/'.$slide7->nameimg)}}" target="_blank">
+                <img src="{{asset('uploads/slide/'.$slide7->nameimg)}}" class="d-block w-100" alt="...">
+              </a>
+            </div> 
+            <div class="carousel-item">
+              <a href="{{asset('uploads/slide/'.$slide8->nameimg)}}" target="_blank">
+                <img src="{{asset('uploads/slide/'.$slide8->nameimg)}}" class="d-block w-100" alt="...">
+              </a>
+            </div> 
+            <div class="carousel-item">
+              <a href="{{asset('uploads/slide/'.$slide9->nameimg)}}" target="_blank">
+                <img src="{{asset('uploads/slide/'.$slide9->nameimg)}}" class="d-block w-100" alt="...">
+              </a>
+            </div> 
+            <div class="carousel-item">
+              <a href="{{asset('uploads/slide/'.$slide10->nameimg)}}" target="_blank">
+                <img src="{{asset('uploads/slide/'.$slide10->nameimg)}}" class="d-block w-100" alt="...">
               </a>
             </div> 
         </div>
