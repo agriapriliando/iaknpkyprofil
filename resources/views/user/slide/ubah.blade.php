@@ -39,16 +39,16 @@
                                 @csrf
                                 <select name="urutan" class="form-select" aria-label="Default select example" required>
                                     <option value="">Pilih Slide yang diganti</option>
-                                    <option value="1">Satu</option>
-                                    <option value="2">Dua</option>
-                                    <option value="3">Tiga</option>
-                                    <option value="4">Empat</option>
-                                    <option value="5">Lima</option>
-                                    <option value="6">Enam</option>
-                                    <option value="7">Tujuh</option>
-                                    <option value="8">Delapan</option>
-                                    <option value="9">Sembilan</option>
-                                    <option value="10">Sepuluh</option>
+                                    <option value="1">1 Satu</option>
+                                    <option value="2">2 Dua</option>
+                                    <option value="3">3 Tiga</option>
+                                    <option value="4">4 Empat</option>
+                                    <option value="5">5 Lima</option>
+                                    <option value="6">6 Enam</option>
+                                    <option value="7">7 Tujuh</option>
+                                    <option value="8">8 Delapan</option>
+                                    <option value="9">9 Sembilan</option>
+                                    <option value="10">10 Sepuluh</option>
                                 </select>
 
                                 <input name="imgslide" type="file" class="mt-1 px-3 form-control @error('imgslide') is-invalid @enderror" required>

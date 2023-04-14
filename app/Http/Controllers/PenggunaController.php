@@ -368,7 +368,7 @@ class PenggunaController extends Controller
         // $slide = Slide::where('urutan',$request->urutan)->first();
         // $nameimg = "slide".$request->urutan.".".$request->file('imgslide')->extension();
         
-        $nameimg = "slide".$request->urutan.".jpg";
+        $nameimg = Carbon::now()->format('mYdHi')."slide".$request->urutan.".jpg";
         
         $slidecari = Slide::updateOrCreate(
             ['urutan' =>  $request->urutan],
