@@ -240,13 +240,12 @@ class PenggunaController extends Controller
         $request->validate([
             'judul' => 'required|min:5',
             'isi' => 'required',
-            'img' => 'image|mimes:png,jpg,jpeg|max:200|dimensions:ratio=4/3',
+            'img' => 'image|mimes:png,jpg,jpeg|max:200',
             'img_judul' => 'required',
             'img_owner' => 'required',
         ],[
             'judul.required' => 'Kolom Judul Tidak Boleh Kosong',
             'img.size' => 'Ukuran Foto harus lebih kecil dari 200kb',
-            'img.dimensions' => 'Rasio Foto harus 4:3 landscape, contoh P 400 X L 300',
         ]);
 
         // $image = $request->img->getRealPath();
@@ -316,14 +315,13 @@ class PenggunaController extends Controller
         $request->validate([
             'judul' => 'required|min:5',
             'isi' => 'required',
-            'img' => 'required|image|mimes:png,jpg,jpeg|max:200|dimensions:ratio=4/3',
+            'img' => 'required|image|mimes:png,jpg,jpeg|max:200',
             'img_judul' => 'required',
             'img_owner' => 'required',
         ],[
             'judul.required' => 'Kolom Judul Tidak Boleh Kosong',
             'img.required' => 'Silahkan Memilih Foto',
             'img.size' => 'Ukuran Foto harus lebih kecil dari 200kb',
-            'img.dimensions' => 'Rasio Foto harus 4:3 landscape, contoh P 400 X L 300',
         ]);
 
         $id_ses = session()->get('id');
