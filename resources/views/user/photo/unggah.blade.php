@@ -107,7 +107,7 @@
                                     <td><img src="{{ asset('storage/photos/thumbnails/'.$photo->img)}}" class="img-fluid"></td>
                                     <td>
                                         {{$photo->judul}} <small>by {{$photo->owner}}</small><br>
-                                        <p class="fts-6" id="{{$photo->id}}">{{ asset('storage/photos/'.$photo->img) }}</p>
+                                        <p class="d-none" id="{{$photo->id}}"><img class="img-fluid" src="{{ asset('storage/photos/'.$photo->img) }}"></p>
                                         <input hidden type="text" value="{{ asset('storage/photos/'.$photo->img) }}" id="copyText">
                                         <button class="btn btn-primary btn-sm" onclick="copyToClipboard('#{{$photo->id}}')">Copy URL</button>
                                     </td>
