@@ -66,7 +66,7 @@
                             </div>
                             <div class="col-lg-6 col-sm-6 col-12">
                                 <div class="form-group">
-                                    <label class="form-label">Pilih File</label>
+                                    <label class="form-label">Pilih File <small class="text-muted">Size Max 300KB, Rasio Bebas</small></label>
                                     <input type="file" name="photo" class="form-control-file @error('photo') is-invalid @enderror" required>
                                     @error('photo')
                                     <div class="invalid-feedback">{{ $message }}</div>

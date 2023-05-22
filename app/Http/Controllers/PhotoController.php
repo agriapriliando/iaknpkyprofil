@@ -101,11 +101,11 @@ class PhotoController extends Controller
     {
         $request->validate([
             'judul' => 'required',
-            'photo' => 'image|mimes:png,jpg,jpeg|max:250',
+            'photo' => 'image|mimes:png,jpg,jpeg|max:300',
         ],[
             'judul.required' => 'Kolom Judul Tidak Boleh Kosong',
-            'photo.size' => 'Ukuran Foto harus lebih kecil dari 200kb',
-            'photo.dimensions' => 'Rasio Foto harus 4:3 landscape, contoh P 800 X L 400',
+            'photo.size' => 'Ukuran Foto harus lebih kecil dari 300kb',
+            // 'photo.dimensions' => 'Rasio Foto harus 4:3 landscape, contoh P 800 X L 400',
         ]);
 
         $photo = Photo::find($id);
@@ -119,7 +119,7 @@ class PhotoController extends Controller
             // kode img intervention hingga save file
             $imgFile = Image::make($request->file('photo'));
             $imgFile->resize(320, 240, function ($constraint) {
-                $constraint->aspectRatio();
+                // $constraint->aspectRatio();
             })->save($destinationPath.'/'.$imageName);
 
             // file request disimpan
@@ -159,12 +159,12 @@ class PhotoController extends Controller
     {
         $request->validate([
             'judul' => 'required',
-            'photo' => 'required|image|mimes:png,jpg,jpeg|max:250',
+            'photo' => 'required|image|mimes:png,jpg,jpeg|max:300',
         ],[
             'judul.required' => 'Kolom Judul Tidak Boleh Kosong',
             'photo.required' => 'Silahkan Memilih Foto',
-            'photo.size' => 'Ukuran Foto harus lebih kecil dari 200kb',
-            'photo.dimensions' => 'Rasio Foto harus 4:3 landscape, contoh P 800 X L 400',
+            'photo.size' => 'Ukuran Foto harus lebih kecil dari 300kb',
+            // 'photo.dimensions' => 'Rasio Foto harus 4:3 landscape, contoh P 800 X L 400',
         ]);
 
         $phototag = Phototag::where('id', $request->phototag_id)->first('judul');
