@@ -104,7 +104,8 @@
                                 @foreach ($photos as $photo)
                                 <tr>
                                     <td>{{$loop->iteration}}</td>
-                                    <td><img src="{{ asset('storage/photos/thumbnails/'.$photo->img)}}" class="img-fluid"></td>
+                                    <td><img src="{{ asset('storage/photos/thumbnails/'.$photo->img)}}" class="img-fluid"> <br>
+                                        {{date('d-m-Y H:i', strtotime($photo->created_at))}}</td>
                                     <td>
                                         {{$photo->judul}} <small>by {{$photo->owner}}</small><br>
                                         <input hidden type="text" value="{{ asset('storage/photos/'.$photo->img) }}" id="{{ $photo->id }}">

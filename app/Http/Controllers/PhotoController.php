@@ -22,7 +22,7 @@ class PhotoController extends Controller
         $id_ses = session()->get('id');
         $user = User::where('id',$id_ses)->first();
 
-        $phototags = Phototag::all();
+        $phototags = Phototag::latest()->get();
         return view('user.photo.daftar', compact('phototags','user'));
     }
 
@@ -77,7 +77,7 @@ class PhotoController extends Controller
 
     public function photo()
     {
-        $photos = Photo::all();
+        $photos = Photo::latest()->get();
         $phototags = Phototag::all();
         return view('user.photo.unggah', compact('photos','phototags'));
     }
