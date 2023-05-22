@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Storage;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Hash;
 use Intervention\Image\Facades\Image;
+use App\Models\Photo;
 
 class PenggunaController extends Controller
 {
@@ -306,8 +307,10 @@ class PenggunaController extends Controller
         $id_ses = session()->get('id');
         $user = User::where('id',$id_ses)->first();
         $kategori = Kategori::all();
+        $photos = Photo::latest()->take(6)->get();
 
-        return view('user.berita.tambah',compact('user','kategori'));
+
+        return view('user.berita.tambah',compact('user','kategori','photos'));
     }
 
     public function simpanartikel(Request $request)

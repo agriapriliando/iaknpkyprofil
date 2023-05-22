@@ -5,28 +5,28 @@
             <ol class="breadcrumb mb-4">
                 {{-- <li class="breadcrumb-item active">Photo</li> --}}
                 @if (session('status'))
-                    <div class="alert alert-success">
-                        {{ session('status') }}
-                    </div>
+                <div class="alert alert-success">
+                    {{ session('status') }}
+                </div>
                 @endif
             </ol>
             <!-- row two -->
             <div class="card mb-4">
                 <div class="card-header">
-                    <i class="fas fa-table mr-1"></i>                      
+                    <i class="fas fa-table mr-1"></i>
                     <!-- Modal Delete-->
                     <div class="modal fade" id="PhotoModalDelete" tabindex="-1">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                <h5 class="modal-title" id="modal-title">Yakin ingin hapus Foto</h5>
-                                <button type="button" class="close" data-dismiss="modal">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
+                                    <h5 class="modal-title" id="modal-title">Yakin ingin hapus Foto</h5>
+                                    <button type="button" class="close" data-dismiss="modal">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
                                 </div>
                                 <div class="modal-body">
                                     <form class="form" id="PhotoData">
-                                        <div class="alert alert-success mb-2" style="display: none">              
+                                        <div class="alert alert-success mb-2" style="display: none">
                                         </div>
                                         <div class="form-group">
                                             <input type="hidden" class="form-control" name="photo_id" id="photo_id">
@@ -59,7 +59,7 @@
                                     <select class="custom-select" name="phototag_id" required>
                                         <option value="">Open this select menu</option>
                                         @foreach ($phototags as $item)
-                                        <option value="{{ $item->id }}" {{ old('phototag_id') == $item->id ? 'selected' : null }} >{{ $item->judul }}</option>
+                                        <option value="{{ $item->id }}" {{ old('phototag_id')==$item->id ? 'selected' : null }} >{{ $item->judul }}</option>
                                         @endforeach
                                     </select>
                                 </div>
@@ -107,10 +107,10 @@
                                     <td><img src="{{ asset('storage/photos/thumbnails/'.$photo->img)}}" class="img-fluid"></td>
                                     <td>
                                         {{$photo->judul}} <small>by {{$photo->owner}}</small><br>
-                                        <p class="d-none" id="{{$photo->id}}"><img class="img-fluid" src="{{ asset('storage/photos/'.$photo->img) }}"></p>
-                                        <input hidden type="text" value="{{ asset('storage/photos/'.$photo->img) }}" id="copyText">
-                                        <button class="btn btn-primary btn-sm" onclick="copyToClipboard('#{{$photo->id}}')">Copy URL</button>
+                                        <input hidden type="text" value="{{ asset('storage/photos/'.$photo->img) }}" id="{{ $photo->id }}">
+                                        <button class="btn btn-primary btn-sm" onclick="copyText({{ $photo->id }})">Copy URL</button>
                                     </td>
+                                    
                                     <td>{{$photo->phototag->judul}}</td>
                                     <td>{{$photo->size}}</td>
                                     <td>
@@ -118,13 +118,25 @@
                                             <div class="input-group">
                                                 <a href="{{ url('admin/photo/'.$photo->id)}}" class="btn btn-primary btn-sm"><i class="fas fa-edit "></i></a>
                                                 <button id="PhotoDelete" type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#PhotoModalDelete" data-id="{{ $photo->id }}">
-                                                    <i class="fas fa-trash "></i>
+                                                    <i class="fas fa-trash"></i>
                                                 </button>
                                             </div>
                                         </div>
                                     </td>
                                 </tr>
                                 @endforeach
+                                <script>
+                                    function copyText(element) {
+                                    /* Get the text field */
+                                    var copyText = document.getElementById(element).value;
+                                    copyText = '<img class="img-fluid" src="'+copyText+'">'
+                                    console.log(copyText);
+                                    /* Copy the text inside the text field */
+                                    navigator.clipboard.writeText(copyText);
+                                    /* Alert the copied text */
+                                    // alert("URL Copied");
+                                    }
+                                </script>
                             </tbody>
                         </table>
                     </div>

@@ -62,11 +62,13 @@
                             @foreach ($artikel as $art)
                             <tr>
                                 <td>{{$loop->iteration}}</td>
-                                <td style="font-size: 1.5vh;">{{$art->user->name}}<br>{{date('d-m-Y H:i', strtotime($art->updated_at))}}</td>
-                                <td style="white-space:normal;">{{$art->judul}}</td>
+                                <td style="font-size: 1.5vh;">
+                                    {{$art->user->name}}<br>{{date('d-m-Y H:i', strtotime($art->updated_at))}}
+                                </td>
+                                <td style="white-space:normal;">{{$art->judul}} | <span class="badge badge-warning">Publish {{date('d-m-Y', strtotime($art->created_at))}}<br>{{date('H:i', strtotime($art->created_at))}} Wib</span></td>
                                 <td style="white-space:normal;">{!!Str::words($art->isi,10)!!}</td>
                                 <td>{{$art->Kategori->judul}}</td>
-                                <td>{{date('d-m-Y', strtotime($art->created_at))}}<br>{{date('H:i', strtotime($art->created_at))}} Wib</td>
+                                <td></td>
                                 <td>{{$art->dilihat}}</td>
                                 <td>
                                     <div class="text-center">

@@ -89,6 +89,20 @@
                           <a href="{{url('admin/artikel')}}" class="btn btn-danger">Kembali</a>
                       </div>
                 </form>
+                <div class="row">
+                    <div class="col-12">
+                        <h5>Daftar 6 Foto Terbaru dari Gallery Foto <a href="{{ url('admin/photo') }}">Lihat Foto-Foto</a></h5>
+                    </div>
+                    @foreach ($photos as $photo)
+                    <div class="col-md-4 col-6 p-1">
+                        <div class="position-relative">
+                            <a href="" class="btn btn-warning position-absolute btn-sm">Copy URL</a>
+                            <a href="" class="btn btn-warning position-absolute btn-sm" style="top: 37px">Copy Element</a>
+                            <img class="img-fluid" src="{{ asset('storage/photos/thumbnails/'.$photo->img)}}">
+                        </div>
+                    </div>
+                    @endforeach
+                </div>
             </div>
         </div>
         <!-- end row two -->

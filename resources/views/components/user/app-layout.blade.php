@@ -22,6 +22,9 @@
             default_link_target: '_blank',
             link_default_protocol: 'https',
             height : "250",
+            mobile: {
+                menubar: true
+            },
             image_dimensions: false,
                 image_class_list: [
                     {title: 'Responsive', value: 'img-fluid'}
@@ -175,29 +178,6 @@
         <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
         <script src="{{asset('assetuser/assets/demo/datatables-demo.js')}}"></script>
         <script>
-            function copyToClipboard(element) {
-                var $temp = $("<input>");
-                $("body").append($temp);
-                $temp.val($(element).text()).select();
-                var $data = $temp.val($(element).text()).select();
-                console.log($data);
-                document.execCommand("copy");
-                $temp.remove();
-                }
-            
-            function copyText() {
-            /* Get the text field */
-            var copyText = document.getElementById("copyText");
-
-            /* Select the text field */
-            copyText.select();
-            copyText.setSelectionRange(0, 99999); /* For mobile devices */
-
-            /* Copy the text inside the text field */
-            navigator.clipboard.writeText(copyText.value);
-            /* Alert the copied text */
-            alert("Copied the text: " + copyText.value);
-            }
             $(document).ready(function(){
                 // js datatable fix on server
                 $('#dataTablePhoto').DataTable({
