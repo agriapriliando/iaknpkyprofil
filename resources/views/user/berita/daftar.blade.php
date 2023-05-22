@@ -41,7 +41,6 @@
                                 <th>Judul</th>
                                 <th>Isi Ringkas</th>
                                 <th>Kategori</th>
-                                <th>Tgl Input</th>
                                 <th>Dilihat</th>
                                 <th>Kelola</th>
                             </tr>
@@ -53,7 +52,6 @@
                                 <th>Judul</th>
                                 <th>Isi Ringkas</th>
                                 <th>Kategori</th>
-                                <th>Tgl Input</th>
                                 <th>Dilihat</th>
                                 <th>Kelola</th>
                             </tr>
@@ -62,17 +60,18 @@
                             @foreach ($artikel as $art)
                             <tr>
                                 <td>{{$loop->iteration}}</td>
-                                <td style="font-size: 1.5vh;">
-                                    {{$art->user->name}}<br>{{date('d-m-Y H:i', strtotime($art->updated_at))}}
+                                <td>
+                                    <p style="font-size: 1.5vh;">
+                                        {{$art->user->name}}<br>{{date('d-m-Y H:i', strtotime($art->updated_at))}}
+                                    </p>
+                                    <a class="pe-1" href="{{url('admin/artikel/'.$art->id)}}"><span><i class="fas fa-edit"></i></span> Edit</a>
                                 </td>
                                 <td style="white-space:normal;">{{$art->judul}} | <span class="badge badge-warning">Publish {{date('d-m-Y', strtotime($art->created_at))}}<br>{{date('H:i', strtotime($art->created_at))}} Wib</span></td>
                                 <td style="white-space:normal;">{!!Str::words($art->isi,10)!!}</td>
                                 <td>{{$art->Kategori->judul}}</td>
-                                <td></td>
                                 <td>{{$art->dilihat}}</td>
                                 <td>
                                     <div class="text-center">
-                                        <a class="pe-1" href="{{url('admin/artikel/'.$art->id)}}"><span><i class="fas fa-edit"></i></span> Edit</a>
                                         <form action="{{url('admin/artikel/hapus/'.$art->id)}}" method="POST">
                                           @method('DELETE')
                                           @csrf

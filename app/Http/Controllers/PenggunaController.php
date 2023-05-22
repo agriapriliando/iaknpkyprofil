@@ -232,8 +232,9 @@ class PenggunaController extends Controller
         $user = User::where('id',$id_ses)->first();
         $artikel = Artikel::where('id', $id)->first();
         $kategori = Kategori::all();
+        $photos = Photo::latest()->take(6)->get();
 
-        return view('user.berita.ubah', compact('user','artikel','kategori'));
+        return view('user.berita.ubah', compact('user','artikel','kategori', 'photos'));
     }
 
     public function updateartikel($id, Request $request)
@@ -241,12 +242,13 @@ class PenggunaController extends Controller
         $request->validate([
             'judul' => 'required|min:5',
             'isi' => 'required',
-            'img' => 'image|mimes:png,jpg,jpeg|max:200|dimensions:ratio=4/3',
+            // 'img' => 'image|mimes:png,jpg,jpeg|max:200|dimensions:ratio=4/3',
+            'img' => 'image|mimes:png,jpg,jpeg|max:300',
             'img_judul' => 'required',
             'img_owner' => 'required',
         ],[
             'judul.required' => 'Kolom Judul Tidak Boleh Kosong',
-            'img.size' => 'Ukuran Foto harus lebih kecil dari 200kb',
+            'img.size' => 'Ukuran Foto harus lebih kecil dari 300kb',
         ]);
 
         // $image = $request->img->getRealPath();
@@ -266,7 +268,7 @@ class PenggunaController extends Controller
             // kode img intervention hingga save file
             $imgFile = Image::make($request->file('img'));
             $imgFile->resize(320, 240, function ($constraint) {
-                $constraint->aspectRatio();
+                // $constraint->aspectRatio();
             })->save($destinationPath.'/'.$imageName);
             
             // file request disimpan
@@ -318,14 +320,15 @@ class PenggunaController extends Controller
         $request->validate([
             'judul' => 'required|min:5',
             'isi' => 'required',
-            'img' => 'required|image|mimes:png,jpg,jpeg|max:200|dimensions:ratio=4/3',
+            // 'img' => 'required|image|mimes:png,jpg,jpeg|max:200|dimensions:ratio=4/3',
+            'img' => 'required|image|mimes:png,jpg,jpeg|max:300',
             'img_judul' => 'required',
             'img_owner' => 'required',
         ],[
             'judul.required' => 'Kolom Judul Tidak Boleh Kosong',
             'img.required' => 'Silahkan Memilih Foto',
-            'img.size' => 'Ukuran Foto harus lebih kecil dari 200kb',
-            'img.dimensions' => 'Rasio Foto harus 4:3 landscape, contoh P 400 X L 300',
+            'img.size' => 'Ukuran Foto harus lebih kecil dari 300kb',
+            // 'img.dimensions' => 'Rasio Foto harus 4:3 landscape, contoh P 400 X L 300',
         ]);
 
         $id_ses = session()->get('id');
@@ -339,7 +342,7 @@ class PenggunaController extends Controller
         // kode img intervention hingga save file
         $imgFile = Image::make($request->file('img'));
         $imgFile->resize(320, 240, function ($constraint) {
-            $constraint->aspectRatio();
+            // $constraint->aspectRatio();
         })->save($destinationPath.'/'.$imageName);
 
         // file request disimpan

@@ -108,7 +108,9 @@
                                     <td>
                                         {{$photo->judul}} <small>by {{$photo->owner}}</small><br>
                                         <input hidden type="text" value="{{ asset('storage/photos/'.$photo->img) }}" id="{{ $photo->id }}">
-                                        <button class="btn btn-primary btn-sm" onclick="copyText({{ $photo->id }})">Copy URL</button>
+                                        <input hidden id="urlimg{{ $photo->id }}" type="text" value="{{ asset('storage/photos/'.$photo->img)}}">
+                                        <button class="btn btn-primary btn-sm" onclick="copyTextHTML('urlimg{{ $photo->id }}')">Copy URL</button>
+                                        <button class="btn btn-primary btn-sm" onclick="copyText({{ $photo->id }})">Copy HTML</button>
                                     </td>
                                     
                                     <td>{{$photo->phototag->judul}}</td>
@@ -130,11 +132,19 @@
                                     /* Get the text field */
                                     var copyText = document.getElementById(element).value;
                                     copyText = '<img class="img-fluid" src="'+copyText+'">'
-                                    console.log(copyText);
+                                    // console.log(copyText);
                                     /* Copy the text inside the text field */
                                     navigator.clipboard.writeText(copyText);
                                     /* Alert the copied text */
-                                    // alert("URL Copied");
+                                    alert("HTML Copied : "+ copyText);
+                                }
+                                function copyTextHTML(element) {
+                                    var copyTextHTML = document.getElementById(element).value;
+                                    // console.log(copyTextHTML);
+                                    /* Copy the text inside the text field */
+                                    navigator.clipboard.writeText(copyTextHTML);
+                                    /* Alert the copied text */
+                                    alert("URL Copied : " + copyTextHTML);
                                     }
                                 </script>
                             </tbody>

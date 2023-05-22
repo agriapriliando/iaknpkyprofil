@@ -62,7 +62,7 @@
                         @enderror
                     </div>
                       <div class="mb-3">
-                        <label class="form-label me-2">Upload Foto <span style="font-style: italic; font-weight: bold;">*Harus lebih kecil dari 200kb dan rasio 4:3 landscape</span></label>
+                        <label class="form-label me-2">Upload Foto <span style="font-style: italic; font-weight: bold;">*Harus lebih kecil dari 300kb dan ideal rasio 4:3 landscape</span></label>
                         <input name="img" type="file" class="form-control @error('img') is-invalid @enderror">
                         @error('img')
                         <div class="invalid-feedback">{{ $message }}</div>
@@ -96,13 +96,35 @@
                     @foreach ($photos as $photo)
                     <div class="col-md-4 col-6 p-1">
                         <div class="position-relative">
-                            <a href="" class="btn btn-warning position-absolute btn-sm">Copy URL</a>
-                            <a href="" class="btn btn-warning position-absolute btn-sm" style="top: 37px">Copy Element</a>
+                            <input hidden type="text" value="{{ asset('storage/photos/'.$photo->img) }}" id="{{ $photo->id }}">
+                            <input hidden id="urlimg{{ $photo->id }}" type="text" value="{{ asset('storage/photos/'.$photo->img)}}">
+                            <button class="btn btn-warning position-absolute btn-sm" onclick="copyTextHTML('urlimg{{ $photo->id }}')">Copy URL</button>
+                            <button style="right:0" class="btn btn-warning position-absolute btn-sm" onclick="copyText({{ $photo->id }})">Copy HTML</button>
                             <img class="img-fluid" src="{{ asset('storage/photos/thumbnails/'.$photo->img)}}">
                         </div>
                     </div>
                     @endforeach
                 </div>
+                <script>
+                    function copyText(element) {
+                    /* Get the text field */
+                    var copyText = document.getElementById(element).value;
+                    copyText = '<img class="img-fluid" src="'+copyText+'">'
+                    console.log(copyText);
+                    /* Copy the text inside the text field */
+                    navigator.clipboard.writeText(copyText);
+                    /* Alert the copied text */
+                    alert("HTML Copied : "+ copyText);
+                }
+                function copyTextHTML(element) {
+                    var copyTextHTML = document.getElementById(element).value;
+                    console.log(copyTextHTML);
+                    /* Copy the text inside the text field */
+                    navigator.clipboard.writeText(copyTextHTML);
+                    /* Alert the copied text */
+                    alert("URL Copied : " + copyTextHTML);
+                    }
+                </script>
             </div>
         </div>
         <!-- end row two -->

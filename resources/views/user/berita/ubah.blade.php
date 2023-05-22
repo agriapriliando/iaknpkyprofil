@@ -65,7 +65,7 @@
                         <label class="form-label me-2">Foto Utama</label>
                         <img style="max-width: 150px" class="img-responsive mb-2" src="{{url('asset/img/berita/'.$artikel->img)}}" alt="">
                         <a class="btn btn-primary" href="{{url('asset/img/berita/'.$artikel->img)}}" target="_blank">Lihat Foto</a>
-                        <p style="font-style: italic; font-weight: bold;">Jika ingin mengganti foto, ukuran harus lebih kecil dari 200kb dan rasio 4:3 landscape</p>
+                        <p style="font-style: italic; font-weight: bold;">Jika ingin mengganti foto, ukuran harus lebih kecil dari 300kb dan ideal rasio 4:3 landscape</p>
                         <input name="img" type="file" class="form-control @error('img') is-invalid @enderror">
                         @error('img')
                         <div class="invalid-feedback">{{ $message }}</div>
@@ -99,6 +99,42 @@
                           <a href="{{url('admin/artikel')}}" class="btn btn-danger">Kembali</a>
                       </div>
                 </form>
+                <div class="row">
+                    <div class="col-12">
+                        <h5>Daftar 6 Foto Terbaru dari Gallery Foto <a href="{{ url('admin/photo') }}">Lihat Foto-Foto</a></h5>
+                    </div>
+                    @foreach ($photos as $photo)
+                    <div class="col-md-4 col-6 p-1">
+                        <div class="position-relative">
+                            <input hidden type="text" value="{{ asset('storage/photos/'.$photo->img) }}" id="{{ $photo->id }}">
+                            <input hidden id="urlimg{{ $photo->id }}" type="text" value="{{ asset('storage/photos/'.$photo->img)}}">
+                            <button class="btn btn-warning position-absolute btn-sm" onclick="copyTextHTML('urlimg{{ $photo->id }}')">Copy URL</button>
+                            <button style="right:0" class="btn btn-warning position-absolute btn-sm" onclick="copyText({{ $photo->id }})">Copy HTML</button>
+                            <img class="img-fluid" src="{{ asset('storage/photos/thumbnails/'.$photo->img)}}">
+                        </div>
+                    </div>
+                    @endforeach
+                </div>
+                <script>
+                    function copyText(element) {
+                    /* Get the text field */
+                    var copyText = document.getElementById(element).value;
+                    copyText = '<img class="img-fluid" src="'+copyText+'">'
+                    console.log(copyText);
+                    /* Copy the text inside the text field */
+                    navigator.clipboard.writeText(copyText);
+                    /* Alert the copied text */
+                    alert("HTML Copied : "+ copyText);
+                }
+                function copyTextHTML(element) {
+                    var copyTextHTML = document.getElementById(element).value;
+                    console.log(copyTextHTML);
+                    /* Copy the text inside the text field */
+                    navigator.clipboard.writeText(copyTextHTML);
+                    /* Alert the copied text */
+                    alert("URL Copied : " + copyTextHTML);
+                    }
+                </script>
             </div>
         </div>
         <!-- end row two -->
