@@ -1,16 +1,5 @@
 <div class="dayak-bg wow animate__animated animate__fadeInUp animate__faster">
 <div class="container">
-    <div class="row pt-3 mx-auto wow animate__animated animate__fadeInUp" style="max-width: 700px">
-        <div class="col bg-white rounded-3">
-            <a href="https://i.ibb.co/9cYWWM7/ujian-pmb-2023-gel-ii.jpg" target="_blank">
-                <img style="border-radius:7px" class="img-fluid mx-auto d-block" src="https://i.ibb.co/9cYWWM7/ujian-pmb-2023-gel-ii.jpg" alt="button-pmb2023">
-            </a>
-            <p class="fs-5">
-                Pelaksanaan Ujian Tertulis dan Wawancara PMB Mandiri Gelombang II <br>Kamis (20 Juli 2023) Sampai Jumat (21 Juli 2023) Pukul 08.00 WIB - Selesai Di Lingkungan Kampus IAKN PAlangka Raya
-            </p>
-        </div>
-    </div>
-    <hr>
     <div class="row pt-3 wow animate__animated animate__fadeInUp">
         <div class="col">
             <a href="https://iaknpky.ac.id/info/seleksi-mandiri" target="_blank">
