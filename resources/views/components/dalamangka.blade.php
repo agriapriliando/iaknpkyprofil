@@ -7,7 +7,7 @@
             {{-- @yield('angka') --}}
             <div class="row justify-content-center my-3">
                 <div class="col-lg-3 col-md-3 col-6 my-2 angka wow animate__animated animate__fadeInUp">
-                    <a href="{{url('info/fakultas')}}">
+                    <a href="{{url('info/program-sarjana')}}">
                         <div class="text-center">
                             <img src="{{url('asset/img/layanan/icon_fakultas.png')}}" alt="...">
                             <p class="fs-5 text-white">3 Fakultas</p>
@@ -15,7 +15,7 @@
                     </a>
                 </div>
                 <div class="col-lg-3 col-md-3 col-6 my-2 angka wow animate__animated animate__fadeInUp">
-                    <a href="{{url('info/program-studi')}}">
+                    <a href="{{url('info/program-sarjana')}}">
                         <div class="text-center">
                             <img src="{{url('asset/img/layanan/icon_jurusan.png')}}" alt="...">
                             <p class="fs-5 text-white">6 Jurusan</p>
@@ -23,7 +23,7 @@
                     </a>
                 </div>
                 <div class="col-lg-3 col-md-3 col-6 my-2 angka wow animate__animated animate__fadeInUp">
-                    <a href="{{url('info/program-studi')}}">
+                    <a href="{{url('info/program-sarjana')}}">
                         <div class="text-center">
                             <img src="{{url('asset/img/layanan/icon_prodi.png')}}" alt="...">
                             <p class="fs-5 text-white">15 Program Studi (S1)</p>
@@ -31,7 +31,7 @@
                     </a>
                 </div>
                 <div class="col-lg-3 col-md-3 col-6 my-2 angka wow animate__animated animate__fadeInUp">
-                    <a href="{{url('info/pascasarjana')}}">
+                    <a href="{{url('info/program-pascasarjana')}}">
                         <div class="text-center">
                             <img src="{{url('asset/img/layanan/icon_pasca.png')}}" alt="...">
                             <p class="fs-5 text-white">5 Program Studi (S2 & S3)</p>
