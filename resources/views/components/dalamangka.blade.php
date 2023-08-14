@@ -26,7 +26,7 @@
                     <a href="{{url('info/program-sarjana')}}">
                         <div class="text-center">
                             <img src="{{url('asset/img/layanan/icon_prodi.png')}}" alt="...">
-                            <p class="fs-5 text-white">15 Program Studi (S1)</p>
+                            <p class="fs-5 text-white">11 Program Studi (S1)</p>
                         </div>
                     </a>
                 </div>
