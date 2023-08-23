@@ -16,7 +16,7 @@
                 </a>
             </div>
             <div class="servis col-lg-3 col-md-3 col-5 my-4 p-2 text-center wow animate__animated animate__fadeInUp">
-                <a href="http://sister.iaknpky.ac.id" target="_blank"><span class="layanan"><i class="fas fa-chalkboard-teacher"></i></span><br>
+                <a href="https://sister.kemdikbud.go.id/beranda" target="_blank"><span class="layanan"><i class="fas fa-chalkboard-teacher"></i></span><br>
                     SISTER <br> Sistem Informasi Sumberdaya Terintegrasi
                 </a>
             </div>
