@@ -1,6 +1,7 @@
 <?php
 
-use Illuminate\Http\Request;
+use App\Http\Controllers\ArtikelApiController;
+use App\Models\Artikel;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,6 +15,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+// Route::middleware('auth:api')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
+
+// Route::get('/artikel', [ArtikelApiController::class, 'index']);
+Route::get('/artikel', function () {
+    $all_artikel = Artikel::with('kategori', 'user')->latest()->limit(6)->get();
+    return $all_artikel;
 });
