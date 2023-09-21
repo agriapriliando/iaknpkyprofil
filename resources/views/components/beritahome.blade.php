@@ -2,6 +2,13 @@
 <div class="container">
     <div class="row pt-3 wow animate__animated animate__fadeInUp">
         <div class="col">
+            <a href="https://iaknpky.ac.id/info/download-dokumen" target="_blank">
+                <img style="border-radius:7px" class="img-fluid mx-auto d-block" src="https://i.ibb.co/fS9tWgB/penjaringan.png" alt="button-pmb2023">
+            </a>
+        </div>
+    </div>
+    <div class="row pt-3 wow animate__animated animate__fadeInUp">
+        <div class="col">
             <a href="https://iaknpky.ac.id/info/seleksi-mandiri" target="_blank">
                 <img style="border-radius:7px" class="img-fluid mx-auto d-block" src="https://i.ibb.co/9Y7dK7m/button-pmb2023iii.gif" alt="button-pmb2023">
             </a>
