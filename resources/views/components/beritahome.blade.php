@@ -1,21 +1,21 @@
 <div class="dayak-bg wow animate__animated animate__fadeInUp animate__faster">
 <div class="container">
-    <div class="row pt-3 wow animate__animated animate__fadeInUp justify-content-center">
+    <div class="row pt-2 wow animate__animated animate__fadeInUp justify-content-center">
         {{-- penjaringan calon rektor --}}
-        <div class="col-12 col-md-6">
+        <div class="col-12 col-md-6 mt-2">
             <a href="https://iaknpky.ac.id/info/download-dokumen" target="_blank">
                 <img style="border-radius:7px" class="img-fluid mx-auto d-block" src="https://i.ibb.co/fS9tWgB/penjaringan.png" alt="penjaringan rektor iakn palangka raya">
             </a>
         </div>
         {{-- banner pddikti --}}
-        <div class="col-12 col-md-6">
+        <div class="col-12 col-md-6 mt-2">
             <a href="https://forms.gle/vTE2BvvQZkwURn9Q7" target="_blank">
                 <img style="border-radius:7px" class="img-fluid mx-auto d-block" src="https://i.ibb.co/vkbRJ6z/perbaikanpddikti2023.jpg" alt="perbaikanpddikti2023">
             </a>
         </div>
     </div>
     {{-- banner pmb --}}
-    <div class="row pt-3 wow animate__animated animate__fadeInUp justify-content-center">
+    <div class="row pt-2 wow animate__animated animate__fadeInUp justify-content-center">
         <div class="col-12 col-md-6">
             <a href="https://iaknpky.ac.id/info/seleksi-mandiri" target="_blank">
                 <img style="border-radius:7px" class="img-fluid mx-auto d-block" src="https://i.ibb.co/9Y7dK7m/button-pmb2023iii.gif" alt="button-pmb2023">
