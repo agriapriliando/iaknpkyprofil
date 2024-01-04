@@ -1,6 +1,6 @@
 <div class="dayak-bg wow animate__animated animate__fadeInUp animate__faster">
 <div class="container">
-    <div class="row pt-2 wow animate__animated animate__fadeInUp justify-content-center">
+    <div class="d-none row pt-2 wow animate__animated animate__fadeInUp justify-content-center">
         {{-- penjaringan calon rektor --}}
         <div class="col-12 col-md-6 mt-2">
             <a href="https://iaknpky.ac.id/info/download-dokumen" target="_blank">
@@ -15,7 +15,7 @@
         </div>
     </div>
     {{-- banner pmb --}}
-    <div class="row pt-2 wow animate__animated animate__fadeInUp justify-content-center">
+    <div class="row pt-4 wow animate__animated animate__fadeInUp justify-content-center">
         <div class="col-12 col-md-6">
             <a href="https://iaknpky.ac.id/info/seleksi-mandiri" target="_blank">
                 <img style="border-radius:7px" class="img-fluid mx-auto d-block" src="https://i.ibb.co/9Y7dK7m/button-pmb2023iii.gif" alt="button-pmb2023">

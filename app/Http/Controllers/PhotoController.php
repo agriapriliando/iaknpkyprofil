@@ -113,7 +113,7 @@ class PhotoController extends Controller
 
         if ($request->hasFile('photo')) {
             // nama file img baru, tambahan datetime format bulan tahun tanggal waktu
-            $imageName = $phototag->judul.Carbon::now()->format('mYdHi').'.'.$request->file('photo')->extension();
+            $imageName = $phototag->judul.Carbon::now()->format('mYdHis').rand(10,99).'.'.$request->file('photo')->extension();
             // set path thumbnails
             $destinationPath = storage_path('app/public/photos/thumbnails');
             // kode img intervention hingga save file
@@ -170,7 +170,7 @@ class PhotoController extends Controller
         $phototag = Phototag::where('id', $request->phototag_id)->first('judul');
 
         // nama file img baru, tambahan datetime format bulan tahun tanggal waktu
-        $imageName = $phototag->judul.Carbon::now()->format('mYdHi').'.'.$request->file('photo')->extension();
+        $imageName = $phototag->judul.Carbon::now()->format('mYdHis').rand(10,99).'.'.$request->file('photo')->extension();
         // set path thumbnails
         $destinationPath = storage_path('app/public/photos/thumbnails');
         // kode img intervention hingga save file

@@ -1,6 +1,6 @@
 <nav class="navbar-area navbar navbar-expand-lg navbar-light dayak-bg">
     <div class="container">
-        <a class="navbar-brand mx-0 px-0" href="#">
+        <a class="navbar-brand mx-0 px-0" href="{{ url('') }}">
             <img style="width: 36vh;" src="{{url('asset/img/logo_iaknpky-min.png')}}" alt="">
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

@@ -6,6 +6,7 @@
 /storage/*.key
 /vendor
 /db
+/file_foto
 .env
 .env.backup
 .phpunit.result.cache

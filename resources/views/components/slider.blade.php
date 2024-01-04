@@ -2,7 +2,7 @@
 <style>
   .carousel-item img {
       /* width: 100vw; */
-      height: 60vh;
+      height: 78vh;
       /* height:100%; */
       /* max-width:100%; */
       object-fit: cover;
@@ -17,8 +17,8 @@
 </style>
 @endsection
 
-<div class="pb-2 sectiondua row justify-content-center m-0">
-  <div class="col-md-9 col-12">
+<div class="sectiondua row justify-content-center m-0">
+  <div class="col-md-12 col-12">
     <div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="2500">
         <div class="carousel-indicators">
           <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
