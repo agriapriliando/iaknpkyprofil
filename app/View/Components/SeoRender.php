@@ -17,29 +17,31 @@ class SeoRender extends Component
      *
      * @return void
      */
-    
+
     public function __construct(Request $request)
     {
         $slug = $request->segment(1);
         $sluginfo = $request->segment(2);
         $artikeldt = Artikel::where('slug', $slug)->first();
         if ($artikeldt) {
-            $img = url('/asset/img/berita/thumbnails/'.$artikeldt->img);
+            $img = url('/asset/img/berita/thumbnails/' . $artikeldt->img);
             seo()->og('url', URL::current());
             seo()->og('image', $img);
             seo()->og('title', $artikeldt->judul);
             seo()->twitter('image', $img);
-            seo()->title('IAKN PKY -'.$artikeldt->judul);
+            seo()->title('IAKN PKY - ' . $artikeldt->judul);
             $stringg = strip_tags($artikeldt->isi);
-            $string = str_replace('"',' ',$stringg);
-            seo()->description(Str::limit($string,500));
-        } elseif($slug == "info") {
+            $string = str_replace('"', ' ', $stringg);
+            seo()->description(Str::limit($string, 500));
+        } elseif ($slug == "info") {
             $konten = Konten::where('slug', $sluginfo)->first();
-            seo()->description($konten->judul." IAKN Palangka Raya | IAKNPKY");
+            seo()->description($konten->judul . " IAKN Palangka Raya | IAKNPKY");
             seo()->og('title', 'IAKN Palangka Raya');
+            seo()->og('image', 'https://iaknpky.ac.id/asset/img/logo_iaknpky_footer.png');
         } else {
             seo()->description("IAKN Palangka Raya | IAKNPKY");
             seo()->og('title', 'IAKN Palangka Raya');
+            seo()->og('image', 'https://iaknpky.ac.id/asset/img/logo_iaknpky_footer.png');
         }
     }
 
@@ -56,13 +58,13 @@ class SeoRender extends Component
         seo()->og('type', 'website');
         seo()->add(
             Meta::make()
-            ->attr('property', 'og:image:width')
-            ->attr('content', '250')
+                ->attr('property', 'og:image:width')
+                ->attr('content', '250')
         );
         seo()->add(
             Meta::make()
-            ->attr('property', 'og:image:height')
-            ->attr('content', '250')
+                ->attr('property', 'og:image:height')
+                ->attr('content', '250')
         );
         seo()->twitter('card', 'summary_large_image');
         seo()->twitter('site', 'Website IAKN Palangka Raya IAKNPKY IAKNP PKY');
